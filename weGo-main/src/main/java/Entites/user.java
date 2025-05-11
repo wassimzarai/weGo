@@ -8,6 +8,7 @@ package Entites;
     public static String gender;
     public static String role;
     public static String date;
+    public static String activated;
 
 
    }
