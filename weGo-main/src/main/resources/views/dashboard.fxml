@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gui.DashboardController"
+            prefHeight="720.0" prefWidth="1280.0"
+            stylesheets="/styles/global.css">
+    
+    <VBox spacing="20" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" 
+          AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+        
+        <!-- Header -->
+        <HBox style="-fx-background-color: #f8f9fa; -fx-border-color: #e9ecef; -fx-border-width: 0 0 1 0;">
+            <padding>
+                <Insets top="20" right="30" bottom="20" left="30"/>
+            </padding>
+            
+            <Button fx:id="btnBack" text="← Retour" onAction="#backToHome"
+                   style="-fx-background-color: transparent; -fx-text-fill: #2196F3; -fx-font-weight: bold;"/>
+            <Region prefWidth="20" />
+            <Label text="Tableau de Bord" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+        </HBox>
+        
+        <!-- Content -->
+        <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+            <VBox spacing="20">
+                <padding>
+                    <Insets top="20" right="30" bottom="30" left="30"/>
+                </padding>
+                
+                <!-- KPI Cards -->
+                <HBox spacing="20" alignment="CENTER">
+                    <!-- Total Réclamations -->
+                    <VBox styleClass="dashboard-card" prefWidth="220" prefHeight="120" alignment="CENTER">
+                        <Label text="Total Réclamations" styleClass="card-title" />
+                        <Label fx:id="totalReclamationsCount" text="0" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #1a73e8;" />
+                    </VBox>
+                    
+                    <!-- En cours -->
+                    <VBox styleClass="dashboard-card" prefWidth="220" prefHeight="120" alignment="CENTER">
+                        <Label text="En cours" styleClass="card-title" />
+                        <Label fx:id="pendingReclamationsCount" text="0" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #FFA726;" />
+                    </VBox>
+                    
+                    <!-- Résolues -->
+                    <VBox styleClass="dashboard-card" prefWidth="220" prefHeight="120" alignment="CENTER">
+                        <Label text="Résolues" styleClass="card-title" />
+                        <Label fx:id="resolvedReclamationsCount" text="0" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #4CAF50;" />
+                    </VBox>
+                    
+                    <!-- Urgentes -->
+                    <VBox styleClass="dashboard-card" prefWidth="220" prefHeight="120" alignment="CENTER">
+                        <Label text="Priorité Haute" styleClass="card-title" />
+                        <Label fx:id="urgentReclamationsCount" text="0" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #F44336;" />
+                    </VBox>
+                </HBox>
+                
+                <!-- Charts Row -->
+                <HBox spacing="20">
+                    <!-- Status Chart -->
+                    <VBox styleClass="dashboard-card" HBox.hgrow="ALWAYS">
+                        <Label text="Répartition par Statut" styleClass="section-header" />
+                        <PieChart fx:id="statusChart" legendVisible="true" prefHeight="300" />
+                    </VBox>
+                    
+                    <!-- Categories Chart -->
+                    <VBox styleClass="dashboard-card" HBox.hgrow="ALWAYS">
+                        <Label text="Répartition par Catégorie" styleClass="section-header" />
+                        <BarChart fx:id="categoriesChart" legendVisible="false" prefHeight="300">
+                            <xAxis>
+                                <CategoryAxis label="Catégorie" />
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis label="Nombre" />
+                            </yAxis>
+                        </BarChart>
+                    </VBox>
+                </HBox>
+                
+                <!-- Geographic Distribution -->
+                <VBox styleClass="dashboard-card">
+                    <Label text="Distribution Géographique" styleClass="section-header" />
+                    <TitledPane text="Vue Carte" expanded="true">
+                        <VBox fx:id="mapContainer" prefHeight="350" alignment="CENTER"
+                             style="-fx-background-color: #f5f5f5; -fx-border-color: #ddd; -fx-border-width: 1px;" />
+                    </TitledPane>
+                </VBox>
+                
+                <!-- Latest Complaints -->
+                <VBox styleClass="dashboard-card">
+                    <Label text="Réclamations Récentes" styleClass="section-header" />
+                    <TableView fx:id="recentReclamationsTable" prefHeight="300">
+                        <columns>
+                            <TableColumn fx:id="ticketIdColumn" text="Ticket ID" prefWidth="100" />
+                            <TableColumn fx:id="titreColumn" text="Titre" prefWidth="150" />
+                            <TableColumn fx:id="dateColumn" text="Date" prefWidth="100" />
+                            <TableColumn fx:id="statutColumn" text="Statut" prefWidth="100" />
+                            <TableColumn fx:id="prioriteColumn" text="Priorité" prefWidth="80" />
+                            <TableColumn fx:id="categorieColumn" text="Catégorie" prefWidth="120" />
+                            <TableColumn fx:id="userColumn" text="Utilisateur" prefWidth="120" />
+                        </columns>
+                    </TableView>
+                </VBox>
+                
+                <!-- Performance Metrics -->
+                <HBox spacing="20">
+                    <!-- Resolution Time -->
+                    <VBox styleClass="dashboard-card" HBox.hgrow="ALWAYS">
+                        <Label text="Temps de Résolution Moyen" styleClass="section-header" />
+                        <LineChart fx:id="resolutionTimeChart" legendVisible="false" prefHeight="250">
+                            <xAxis>
+                                <CategoryAxis label="Mois" />
+                            </xAxis>
+                            <yAxis>
+                                <NumberAxis label="Jours" />
+                            </yAxis>
+                        </LineChart>
+                    </VBox>
+                    
+                    <!-- Satisfaction -->
+                    <VBox styleClass="dashboard-card" HBox.hgrow="ALWAYS">
+                        <Label text="Taux de Satisfaction" styleClass="section-header" />
+                        <StackPane alignment="CENTER" prefHeight="250">
+                            <ProgressIndicator fx:id="satisfactionIndicator" progress="0.75" 
+                                              style="-fx-progress-color: #4CAF50;" prefWidth="200" prefHeight="200" />
+                            <Label fx:id="satisfactionLabel" text="75%" style="-fx-font-size: 24; -fx-font-weight: bold;" />
+                        </StackPane>
+                    </VBox>
+                </HBox>
+                
+                <!-- Export Options -->
+                <HBox spacing="15" alignment="CENTER_RIGHT">
+                    <Button text="Exporter en PDF" onAction="#exportToPDF"
+                            style="-fx-background-color: #F44336; -fx-text-fill: white;" />
+                    <Button text="Exporter en CSV" onAction="#exportToExcel"
+                            style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+                    <Button text="Actualiser" onAction="#refreshDashboard"
+                            style="-fx-background-color: #2196F3; -fx-text-fill: white;" />
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </VBox>
+</AnchorPane> 

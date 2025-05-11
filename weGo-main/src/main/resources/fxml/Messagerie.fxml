@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+
+<BorderPane prefHeight="650.0" prefWidth="900.0" styleClass="main-container" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MessagerieController">
+
+    <!-- En-tête -->
+    <top>
+        <VBox alignment="CENTER" spacing="10" styleClass="header">
+            <padding>
+                <Insets bottom="10" left="25" right="25" top="20" />
+            </padding>
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <ImageView fitHeight="48.0" fitWidth="48.0" preserveRatio="true">
+                    <image>
+                        <Image url="@logo.png" />
+                    </image>
+                </ImageView>
+                <Label styleClass="title-label" text="Messagerie">
+                    <font>
+                        <Font name="System Bold" size="30.0" />
+                    </font>
+                    <effect>
+                        <DropShadow color="#00000040" radius="3.0" spread="0.1" />
+                    </effect>
+                </Label>
+            </HBox>
+            <Separator styleClass="header-separator" />
+        </VBox>
+    </top>
+
+    <!-- Contenu principal -->
+    <center>
+        <HBox spacing="0" VBox.vgrow="ALWAYS">
+            <!-- Zone de chat à gauche -->
+            <VBox spacing="0" style="-fx-background-color:transparent;" prefWidth="500.0">
+                <!-- Zone de conversation -->
+                <VBox styleClass="chat-container" VBox.vgrow="ALWAYS">
+                    <HBox styleClass="chat-header">
+                        <padding>
+                            <Insets bottom="10" left="20" right="20" top="10" />
+                        </padding>
+                        <StackPane maxHeight="32.0" maxWidth="32.0" prefHeight="32.0" prefWidth="32.0" style="-fx-background-color: #8e44ad; -fx-background-radius: 16;">
+                            <Label alignment="CENTER" style="-fx-font-size: 18px; -fx-text-fill: white;" text="👤" />
+                        </StackPane>
+                        <Label fx:id="chatTitleLabel" styleClass="chat-title" text="Sélectionnez une conversation" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Label fx:id="unreadCountLabel" styleClass="unread-count" />
+                    </HBox>
+
+                    <ScrollPane fx:id="messagesScrollPane" fitToWidth="true" prefHeight="350.0" prefWidth="238.0" styleClass="messages-scroll-pane" VBox.vgrow="ALWAYS">
+                        <content>
+                            <VBox fx:id="messagesContainer" spacing="12" styleClass="messages-vbox" />
+                        </content>
+                    </ScrollPane>
+
+                    <VBox styleClass="input-container">
+                        <HBox styleClass="message-input-container">
+                            <padding>
+                                <Insets bottom="8" left="20" right="20" top="10" />
+                            </padding>
+                            <TextArea fx:id="messageInput" promptText="Écrivez votre message..." styleClass="message-input" HBox.hgrow="ALWAYS" wrapText="true" prefRowCount="2" />
+                            <Button fx:id="sendButton" onAction="#sendMessage" styleClass="send-button">
+                                <graphic>
+                                    <Label styleClass="send-icon" text="➤" />
+                                </graphic>
+                            </Button>
+                        </HBox>
+
+                        <HBox alignment="CENTER_LEFT" spacing="8" style="-fx-padding: 0 0 8 20;">
+                            <Button onAction="#sendQuickMessage" styleClass="quick-message-btn" text="J'arrive" userData="J'arrive" />
+                            <Button onAction="#sendQuickMessage" styleClass="quick-message-btn" text="Je suis là" userData="Je suis là" />
+                            <Button onAction="#sendQuickMessage" styleClass="quick-message-btn" text="Merci !" userData="Merci !" />
+                        </HBox>
+                    </VBox>
+                </VBox>
+            </VBox>
+            <Separator orientation="VERTICAL" />
+            <!-- Carte à droite -->
+            <VBox prefWidth="400" style="-fx-background-color: #f5f6fa; -fx-border-color: #dfe6e9; -fx-border-width: 0 0 0 1;" alignment="CENTER">
+                <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 10;">
+                    <Label style="-fx-font-weight: bold; -fx-font-size: 13px;" text="Localisation du conducteur" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button fx:id="refreshMapButton" onAction="#refreshMap" styleClass="refresh-button" text="Actualiser" />
+                </HBox>
+                <WebView fx:id="mapView" prefHeight="500" prefWidth="380" VBox.vgrow="ALWAYS" />
+            </VBox>
+        </HBox>
+    </center>
+</BorderPane>

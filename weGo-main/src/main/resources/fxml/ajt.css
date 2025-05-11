@@ -1,0 +1,72 @@
+/* Conteneur de la vue ajout */
+* {
+    -fx-primary: #2ecc71;
+    -fx-primary-dark: #27ae60;
+    -fx-primary-light: #82e0aa;
+    -fx-secondary: #f1c40f;
+    -fx-secondary-dark: #f39c12;
+    -fx-grey-color: #bdc3c7;
+    -fx-focus-color: -fx-primary;
+}
+.header-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill:#27ae60;
+}
+
+.ajout-container {
+    -fx-background-color: #27ae60;
+    -fx-padding: 30;
+    -fx-spacing: 20;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 12, 0, 0, 6);
+}
+
+/* Titre de la section */
+.ajout-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary;
+    -fx-padding: 0 0 10 0;
+}
+
+/* Labels des champs */
+.ajout-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+/* Champs de saisie */
+.ajout-field {
+    -fx-background-color: white;
+    -fx-border-color: -fx-grey-color;
+    -fx-border-radius: 5;
+    -fx-padding: 8;
+    -fx-font-size: 14px;
+}
+
+.ajout-field:focused {
+    -fx-border-color: -fx-primary;
+    -fx-border-width: 2;
+}
+
+/* Bouton Ajouter */
+.ajout-button {
+    -fx-background-color: -fx-primary;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+    -fx-min-width: 120;
+}
+
+.ajout-button:hover {
+    -fx-opacity: 0.9;
+}
+
+.ajout-button:pressed {
+    -fx-opacity: 0.8;
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API de Réservation Automatique</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #8e44ad;
+            border-bottom: 2px solid #8e44ad;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-top: 30px;
+        }
+        pre {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .endpoint {
+            background-color: #e8e8e8;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        .success-message {
+            background-color: #d5f5e3;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #2ecc71;
+        }
+        .error-message {
+            background-color: #fadbd8;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 4px solid #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <h1>API de Réservation Automatique</h1>
+    
+    <p>Cette API permet aux utilisateurs possédant un abonnement actif de créer automatiquement une réservation sur le prochain trajet disponible.</p>
+    
+    <h2>Endpoint disponible</h2>
+    
+    <div class="endpoint">POST /api/reservations/automatique</div>
+    
+    <h2>Format de la requête</h2>
+    
+    <pre><code>{
+  "passagerId": 123,
+  "villeDepart": "Tunis",
+  "villeArrivee": "Sfax",
+  "nombrePlaces": 2,
+  "utiliserItineraireHabituel": false
+}</code></pre>
+    
+    <h2>Format de la réponse</h2>
+    
+    <h3>Exemple de succès</h3>
+    <pre class="success-message"><code>{
+  "message": "Votre réservation pour le trajet de 08h30 a été confirmée avec succès.",
+  "data": { ... détails de la réservation ... },
+  "success": true,
+  "statusCode": 201
+}</code></pre>
+    
+    <h3>Exemple d'erreur</h3>
+    <pre class="error-message"><code>{
+  "message": "Réservation impossible : votre abonnement est expiré. Veuillez le renouveler pour continuer.",
+  "data": null,
+  "success": false,
+  "statusCode": 400
+}</code></pre>
+    
+    <h2>Documentation</h2>
+    <p>Pour plus de détails, consultez la <a href="doc/api_documentation.md">documentation complète de l'API</a>.</p>
+    
+    <footer>
+        <p>&copy; 2023 - Système de Réservation Automatique</p>
+    </footer>
+</body>
+</html> 

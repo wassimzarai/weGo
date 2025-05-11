@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/20.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="Controllers.statics"
+            prefHeight="600.0" prefWidth="800.0"
+            stylesheets="@dashboard.css">
+
+    <!-- Top: Title -->
+    <top>
+        <HBox alignment="CENTER">
+            <padding>
+                <Insets top="20" right="10" bottom="20" left="10" />
+            </padding>
+            <children>
+                <Label text="Tableau de Bord des Statistiques" styleClass="textfield-record-design">
+                    <font>
+                        <Font size="24.0"/>
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+    </top>
+
+    <!-- Center: Bar Chart -->
+    <center>
+        <VBox alignment="CENTER">
+            <padding>
+                <Insets top="10" right="20" bottom="20" left="20" />
+            </padding>
+            <children>
+                <BarChart fx:id="statBarChart" prefHeight="450.0" prefWidth="700.0" styleClass="cog">
+                    <xAxis>
+                        <CategoryAxis fx:id="statCategoryAxis" label="Catégories" />
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis fx:id="statNumberAxis" label="Valeurs" />
+                    </yAxis>
+                </BarChart>
+                <PieChart fx:id="genderPieChart" prefHeight="300.0" prefWidth="300.0" styleClass="cog" />
+            </children>
+        </VBox>
+    </center>
+
+    <!-- Optional Bottom: For future controls -->
+    <bottom>
+        <HBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets top="10" right="10" bottom="20" left="10" />
+            </padding>
+            <!-- You can add controls like buttons here later -->
+        </HBox>
+    </bottom>
+
+</BorderPane>

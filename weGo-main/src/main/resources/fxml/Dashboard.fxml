@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Dashboard">
+    <children>
+        <AnchorPane fx:id="navbar" prefHeight="607.0" prefWidth="180.0" styleClass="navbar" stylesheets="@dashboard.css">
+            <children>
+                <Circle fx:id="circle" fill="#555d63" layoutX="90.0" layoutY="85.0" radius="71.0" stroke="BLACK" strokeType="INSIDE" />
+                <Label layoutX="33.0" layoutY="176.0" text="Welcome!" textFill="#fffefe">
+                    <font>
+                        <Font name="Microsoft Sans Serif" size="25.0" />
+                    </font>
+                </Label>
+                <Label fx:id="userr" alignment="CENTER" layoutX="11.0" layoutY="212.0" prefHeight="32.0" prefWidth="158.0" text="rawef" textFill="#fab300">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+                <Button fx:id="home" alignment="CENTER" layoutX="3.0" layoutY="254.0" mnemonicParsing="false" onAction="#changePage" prefHeight="40.0" prefWidth="200.0" styleClass="navbutton" stylesheets="@dashboard.css" text="       Home" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+                <Button fx:id="historique" alignment="CENTER" layoutX="15.0" layoutY="546.0" mnemonicParsing="false" onAction="#logoutAccount" prefWidth="150.0" styleClass="navbutton" stylesheets="@dashboard.css" text="      Logout" textFill="WHITE">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Button>
+                <Button fx:id="edit" layoutX="38.0" layoutY="43.0" mnemonicParsing="false" onAction="#changePage" prefHeight="83.0" prefWidth="102.0" styleClass="editButton" stylesheets="@dashboard.css">
+                    <graphic>
+                    </graphic>
+                </Button>
+            <Button fx:id="soulayma" alignment="CENTER" layoutX="-1.0" layoutY="294.0" mnemonicParsing="false" onAction="#btnpaiement" prefHeight="40.0" prefWidth="207.0" styleClass="navbutton" stylesheets="@dashboard.css" text="paiement&amp;facture " textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="hassan" alignment="CENTER" layoutX="-1.0" layoutY="334.0" mnemonicParsing="false" onAction="#btntarjet" prefHeight="40.0" prefWidth="207.0" styleClass="navbutton" stylesheets="@dashboard.css" text="Trajets" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="salma" alignment="CENTER" layoutX="-1.0" layoutY="374.0" mnemonicParsing="false" onAction="#btnreservation" prefHeight="40.0" prefWidth="207.0" styleClass="navbutton" stylesheets="@dashboard.css" text="Réservation" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="eya" alignment="CENTER" layoutX="-1.0" layoutY="414.0" mnemonicParsing="false" onAction="#btnvoit" prefHeight="40.0" prefWidth="207.0" styleClass="navbutton" stylesheets="@dashboard.css" text="Voiture " textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="avis_reclamation" alignment="CENTER" layoutX="-1.0" layoutY="454.0" mnemonicParsing="false" onAction="#btnAvisReclamation" prefHeight="40.0" prefWidth="207.0" styleClass="navbutton" stylesheets="@dashboard.css" text="Avis Reclamation" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+
+            </children></AnchorPane>
+        <AnchorPane layoutX="180.0" layoutY="-2.0" prefHeight="30.0" prefWidth="821.0">
+            <children>
+                <Button layoutX="778.0" layoutY="-2.0" mnemonicParsing="false" onAction="#exit" prefHeight="32.0" prefWidth="43.0" styleClass="exit" stylesheets="@dashboard.css">
+                    <graphic>
+                    </graphic>
+                </Button>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="180.0" layoutY="28.0" prefHeight="572.0" prefWidth="822.0">
+            <children>
+                <AnchorPane prefHeight="150.0" prefWidth="822.0" styleClass="card-top" stylesheets="@dashboard.css" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="180.0" layoutY="38.0" prefHeight="562.0" prefWidth="822.0">
+            <children>
+                <AnchorPane prefHeight="150.0" prefWidth="833.0" styleClass="card-top" stylesheets="@dashboard.css">
+                    <children>
+                        <ImageView fitHeight="150.0" fitWidth="500.0" layoutX="338.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="file:/C:\Users\wassi\IdeaProjects\user2\src\main\resources\fxml\wassimwassim.png" />
+                            </image>
+                            <effect>
+                                <Glow />
+                            </effect>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="home_page" layoutX="6.0" layoutY="150.0" prefHeight="410.0" prefWidth="822.0" stylesheets="@dashboard.css">
+                    <children>
+                        <AnchorPane fx:id="totale_users" layoutX="56.0" layoutY="36.0" prefHeight="166.0" prefWidth="296.0" styleClass="card-dashboard1" stylesheets="@dashboard.css">
+                            <children>
+                                <Label layoutX="14.0" layoutY="14.0" prefHeight="40.0" prefWidth="180.0" text="Totale utilisateurs" textFill="WHITE">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="label_totale_utilisateur" layoutX="30.0" layoutY="74.0" prefHeight="52.0" prefWidth="102.0" textFill="WHITE">
+                                    <font>
+                                        <Font size="36.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane fx:id="totale_stations" layoutX="56.0" layoutY="220.0" prefHeight="166.0" prefWidth="296.0" styleClass="card-dashboard2" stylesheets="@dashboard.css">
+                            <children>
+                                <Label layoutX="14.0" layoutY="26.0" prefHeight="30.0" prefWidth="188.0" text="Totale Reclamations" textFill="#efefef">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="38.0" layoutY="63.0" textFill="WHITE">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                            </children></AnchorPane>
+                        <AnchorPane fx:id="totale_velos" layoutX="414.0" layoutY="36.0" prefHeight="166.0" prefWidth="296.0" styleClass="card-dashboard3" stylesheets="@dashboard.css">
+                            <children>
+                                <Label layoutX="26.0" layoutY="14.0" prefHeight="30.0" prefWidth="142.0" text="Totale Voitures" textFill="WHITE">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="label_totale_velos" layoutX="37.0" layoutY="70.0" prefHeight="54.0" prefWidth="93.0" textFill="WHITE">
+                                    <font>
+                                        <Font size="36.0" />
+                                    </font>
+                                </Label>
+                            </children></AnchorPane>
+                        <AnchorPane fx:id="totale_produits" layoutX="414.0" layoutY="220.0" prefHeight="166.0" prefWidth="296.0" styleClass="card-dashboard4" stylesheets="@dashboard.css">
+                            <children>
+                                <Label layoutX="46.0" layoutY="63.0" textFill="WHITE">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <Label layoutX="26.0" layoutY="22.0" text="Totale reservations" textFill="WHITE">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                            </children></AnchorPane>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="details_page" layoutX="-1.0" layoutY="150.0" prefHeight="410.0" prefWidth="830.0" visible="false">
+                    <children>
+                        <Label layoutX="24.0" layoutY="14.0" prefHeight="30.0" prefWidth="166.0" text="Personal details:" textFill="#fab300">
+                            <font>
+                                <Font size="20.0" />
+                            </font>
+                            <effect>
+                                <Lighting>
+                                    <bumpInput>
+                                        <Shadow />
+                                    </bumpInput>
+                                    <light>
+                                        <Light.Distant />
+                                    </light>
+                                </Lighting>
+                            </effect>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fdf7ff9c" height="54.0" layoutX="24.0" layoutY="51.0" strokeType="INSIDE" width="296.0">
+                            <stroke>
+                                <LinearGradient endX="0.35227271282311645" endY="1.0" startX="0.6931818037322073">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color red="0.6526315808296204" green="0.3118128776550293" blue="0.6526315808296204" />
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color red="0.9921568632125854" green="0.9686274528503418" blue="1.0" />
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </LinearGradient>
+                            </stroke>
+                        </Rectangle>
+                        <Label layoutX="39.0" layoutY="68.0" prefHeight="18.0" prefWidth="68.0" text="Username" textFill="#00000096">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="username_details" layoutX="174.0" layoutY="65.0" prefHeight="26.0" prefWidth="134.0" text="wassim">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fdf7ff" height="54.0" layoutX="24.0" layoutY="124.0" strokeType="INSIDE" width="296.0">
+                            <stroke>
+                                <LinearGradient endX="0.35227271282311645" endY="1.0" startX="0.8068181673685709">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color red="0.5969590544700623" green="0.3036257326602936" blue="0.6947368383407593" />
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color red="0.9921568632125854" green="0.9686274528503418" blue="1.0" />
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </LinearGradient>
+                            </stroke>
+                        </Rectangle>
+                        <Label layoutX="39.0" layoutY="143.0" text="Date of birth" textFill="#00000095">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="date_details" layoutX="179.0" layoutY="138.0" prefHeight="26.0" prefWidth="134.0" text="Label">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fdf7ff" height="54.0" layoutX="24.0" layoutY="196.0" strokeType="INSIDE" width="296.0">
+                            <stroke>
+                                <LinearGradient endX="0.35227271282311645" endY="1.0" startX="0.8068181673685709">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color red="0.5969590544700623" green="0.3036257326602936" blue="0.6947368383407593" />
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color red="0.9921568632125854" green="0.9686274528503418" blue="1.0" />
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </LinearGradient>
+                            </stroke>
+                        </Rectangle>
+                        <Label layoutX="39.0" layoutY="215.0" text="Gender" textFill="#00000097">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="gender_details" layoutX="174.0" layoutY="210.0" prefHeight="26.0" prefWidth="134.0" text="Label">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fdf7ff" height="54.0" layoutX="24.0" layoutY="273.0" strokeType="INSIDE" width="296.0">
+                            <stroke>
+                                <LinearGradient endX="0.35227271282311645" endY="1.0" startX="0.8068181673685709">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color red="0.5969590544700623" green="0.3036257326602936" blue="0.6947368383407593" />
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color red="0.9921568632125854" green="0.9686274528503418" blue="1.0" />
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </LinearGradient>
+                            </stroke>
+                        </Rectangle>
+                        <Label layoutX="48.0" layoutY="292.0" text="Email" textFill="#00000097">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="email_details" layoutX="147.0" layoutY="289.0" prefHeight="26.0" prefWidth="166.0" text="Label">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <Circle fx:id="circle1" fill="#555d63" layoutX="576.0" layoutY="153.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fdf7ff" height="54.0" layoutX="24.0" layoutY="342.0" strokeType="INSIDE" width="296.0">
+                            <stroke>
+                                <LinearGradient endX="0.35227271282311645" endY="1.0" startX="0.6931818037322073">
+                                    <stops>
+                                        <Stop>
+                                            <color>
+                                                <Color red="0.6526315808296204" green="0.3118128776550293" blue="0.6526315808296204" />
+                                            </color>
+                                        </Stop>
+                                        <Stop offset="1.0">
+                                            <color>
+                                                <Color red="0.9921568632125854" green="0.9686274528503418" blue="1.0" />
+                                            </color>
+                                        </Stop>
+                                    </stops>
+                                </LinearGradient>
+                            </stroke>
+                        </Rectangle>
+                        <Label layoutX="48.0" layoutY="359.0" text="Role" textFill="#00000096">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="role_details" layoutX="175.0" layoutY="353.0" prefHeight="26.0" prefWidth="134.0" text="Label">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <Button layoutX="448.0" layoutY="272.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="142.0" styleClass="navbutton" stylesheets="@dashboard.css" text="Change profile picture" />
+                        <Button layoutX="599.0" layoutY="272.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="103.0" styleClass="navbutton" stylesheets="@dashboard.css" text="       remove" />
+                        <Button fx:id="editprofil_button" layoutX="452.0" layoutY="340.0" mnemonicParsing="false" onAction="#changePage" prefHeight="40.0" prefWidth="254.0" styleClass="navbutton" stylesheets="@dashboard.css" text="              edit profil">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="edit_information" layoutX="2.0" layoutY="150.0" prefHeight="410.0" prefWidth="830.0" visible="false">
+                    <children>
+                        <Label layoutX="30.0" layoutY="14.0" text="Personel information" textFill="#fab300">
+                            <font>
+                                <Font size="24.0" />
+                            </font>
+                            <effect>
+                                <Lighting>
+                                    <bumpInput>
+                                        <Shadow />
+                                    </bumpInput>
+                                    <light>
+                                        <Light.Distant />
+                                    </light>
+                                </Lighting>
+                            </effect>
+                        </Label>
+                        <Label layoutX="30.0" layoutY="60.0" prefHeight="27.0" prefWidth="94.0" text="Username">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="username_update" layoutX="30.0" layoutY="87.0" prefHeight="35.0" prefWidth="222.0" promptText="username" styleClass="textfield-record-design" stylesheets="@dashboard.css" />
+                        <Label layoutX="30.0" layoutY="129.0" prefHeight="18.0" prefWidth="59.0" text="Email">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="email_update" layoutX="30.0" layoutY="155.0" prefHeight="35.0" prefWidth="222.0" promptText="email" styleClass="textfield-record-design" stylesheets="@dashboard.css" />
+                        <Label layoutX="30.0" layoutY="197.0" text="Date of birth">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="date_update" layoutX="30.0" layoutY="223.0" prefHeight="35.0" prefWidth="222.0" promptText="date" styleClass="textfield-record-design" stylesheets="@dashboard.css" />
+                        <Label layoutX="30.0" layoutY="274.0" text="Gender">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="gender" layoutX="30.0" layoutY="300.0" onAction="#comboBox" prefHeight="35.0" prefWidth="222.0" styleClass="textfield-record-design" stylesheets="@dashboard.css" />
+                        <Label layoutX="415.0" layoutY="61.0" text="Role">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="role_update" layoutX="415.0" layoutY="92.0" prefHeight="35.0" prefWidth="222.0" promptText="role" styleClass="textfield-record-design" stylesheets="@dashboard.css" />
+                        <Button fx:id="update2" layoutX="415.0" layoutY="251.0" mnemonicParsing="false" onAction="#update" prefHeight="35.0" prefWidth="90.0" styleClass="navbutton" stylesheets="@dashboard.css" text="     Update" />
+                        <Line endX="41.79998779296875" endY="338.0" layoutX="321.0" layoutY="74.0" startX="41.79998779296875" startY="-74.00001525878906" />
+                        <Label layoutX="415.0" layoutY="146.0" text="Password">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="password_update" layoutX="415.0" layoutY="179.0" prefHeight="35.0" prefWidth="222.0" promptText="password" styleClass="textfield-record-design" stylesheets="@dashboard.css" />
+                        <Button layoutX="526.0" layoutY="251.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="90.0" styleClass="navbutton" stylesheets="@dashboard.css" text="     Delete" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="leith" layoutX="2.0" layoutY="150.0" prefHeight="410.0" prefWidth="830.0" visible="false">
+                    <children>
+                        <ComboBox layoutX="14.0" layoutY="151.0" prefHeight="26.0" prefWidth="175.0" styleClass="textfield-record-design" stylesheets="@dashboard.css" />
+                        <DatePicker layoutX="14.0" layoutY="114.0" prefHeight="33.0" prefWidth="175.0" styleClass="textfield-record-design" stylesheets="@dashboard.css" />
+                        <Button layoutX="99.0" layoutY="205.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" styleClass="navbutton" stylesheets="@dashboard.css" text="     Filtrer" textAlignment="CENTER" />
+                        <Label layoutX="14.0" layoutY="64.0" prefHeight="32.0" prefWidth="175.0" text="Hi , Choose your favourite" textAlignment="CENTER" textFill="#8e3482">
+                            <font>
+                                <Font name="Microsoft Sans Serif" size="14.0" />
+                            </font>
+                        </Label>
+                        <Button layoutX="99.0" layoutY="244.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" styleClass="navbutton" stylesheets="@dashboard.css" text="   My Events" />
+                        <AnchorPane layoutX="260.0" layoutY="14.0" prefHeight="166.0" prefWidth="222.0" styleClass="card-dashboard1" stylesheets="@dashboard.css">
+                            <children>
+                                <ImageView fitHeight="96.0" fitWidth="124.0" layoutX="42.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@wassim.png" />
+                                    </image>
+                                </ImageView>
+                                <Button layoutX="44.0" layoutY="111.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="134.0" styleClass="navbutton" stylesheets="@dashboard.css" text="          consulter" textFill="WHITE" />
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="492.0" layoutY="14.0" prefHeight="166.0" prefWidth="222.0" styleClass="card-dashboard1" stylesheets="@dashboard.css">
+                            <children>
+                                <ImageView fitHeight="96.0" fitWidth="124.0" layoutX="42.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@raweffff.png" />
+                                    </image>
+                                </ImageView>
+                                <Button layoutX="34.0" layoutY="110.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="134.0" styleClass="navbutton" stylesheets="@dashboard.css" text="          consulter" textFill="WHITE" />
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="260.0" layoutY="198.0" prefHeight="166.0" prefWidth="222.0" styleClass="card-dashboard1" stylesheets="@dashboard.css">
+                            <children>
+                                <ImageView fitHeight="96.0" fitWidth="124.0" layoutX="42.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@wassim.png" />
+                                    </image>
+                                </ImageView>
+                                <Button layoutX="44.0" layoutY="111.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="134.0" styleClass="navbutton" stylesheets="@dashboard.css" text="          consulter" textFill="WHITE" />
+                            </children>
+                        </AnchorPane>
+                        <AnchorPane layoutX="492.0" layoutY="198.0" prefHeight="166.0" prefWidth="222.0" styleClass="card-dashboard1" stylesheets="@dashboard.css">
+                            <children>
+                                <ImageView fitHeight="96.0" fitWidth="124.0" layoutX="42.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@wassim.png" />
+                                    </image>
+                                </ImageView>
+                                <Button layoutX="44.0" layoutY="111.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="134.0" styleClass="navbutton" stylesheets="@dashboard.css" text="          consulter" textFill="WHITE" />
+                            </children>
+                        </AnchorPane>
+                        <Button layoutX="99.0" layoutY="290.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="90.0" styleClass="navbutton" stylesheets="@dashboard.css" text="     Controle" />
+                    </children>
+                </AnchorPane>
+                <AnchorPane layoutX="2.0" layoutY="151.0" prefHeight="414.0" prefWidth="830.0" visible="false">
+                    <children>
+                        <TextField layoutX="34.0" layoutY="42.0" promptText="guide" styleClass="textfield-record-design" stylesheets="@dashboard.css" />
+                        <TextField layoutX="34.0" layoutY="89.0" promptText="location" styleClass="textfield-record-design" stylesheets="@dashboard.css" />
+                        <DatePicker layoutX="38.0" layoutY="143.0" prefHeight="27.0" prefWidth="180.0" styleClass="chart-Button" stylesheets="@dashboard.css" />
+                        <TextField layoutX="34.0" layoutY="180.0" promptText="Prix" styleClass="textfield-record-design" stylesheets="@dashboard.css" />
+                        <TextArea layoutX="34.0" layoutY="231.0" prefHeight="127.0" prefWidth="166.0" promptText="Description" styleClass="textfield-record-design" stylesheets="@dashboard.css" />
+                        <Button layoutX="34.0" layoutY="373.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="112.0" styleClass="navbutton" stylesheets="@dashboard.css" text="Ajouter" />
+                        <TextField layoutX="329.0" layoutY="42.0" promptText="ID" styleClass="textfield-record-design" stylesheets="@dashboard.css" />
+                        <TextField layoutX="329.0" layoutY="76.0" promptText="guide" styleClass="textfield-record-design" stylesheets="@dashboard.css" />
+                        <TextField layoutX="329.0" layoutY="110.0" promptText="location" styleClass="textfield-record-design" stylesheets="@dashboard.css" />
+                        <DatePicker layoutX="333.0" layoutY="144.0" prefHeight="27.0" prefWidth="180.0" styleClass="chart-Button" stylesheets="@dashboard.css" />
+                        <TextField layoutX="329.0" layoutY="171.0" promptText="Prix" styleClass="textfield-record-design" stylesheets="@dashboard.css" />
+                        <TextArea layoutX="332.0" layoutY="207.0" prefHeight="127.0" prefWidth="166.0" promptText="Description" styleClass="textfield-record-design" stylesheets="@dashboard.css" />
+                        <Button layoutX="333.0" layoutY="345.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="67.0" styleClass="navbutton" stylesheets="@dashboard.css" text="Modifier" />
+                        <Button layoutX="415.0" layoutY="345.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="79.0" styleClass="navbutton" stylesheets="@dashboard.css" text="DELETE" />
+                        <TextField layoutX="569.0" layoutY="42.0" promptText="ID" styleClass="textfield-record-design" stylesheets="@dashboard.css" />
+                        <ListView layoutX="569.0" layoutY="107.0" prefHeight="200.0" prefWidth="188.0" />
+                        <TextField layoutX="569.0" layoutY="317.0" promptText="ID_PARTICIPANT" styleClass="textfield-record-design" stylesheets="@dashboard.css" />
+                        <Button layoutX="623.0" layoutY="80.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="79.0" styleClass="navbutton" stylesheets="@dashboard.css" text="SHOW" />
+                        <Button layoutX="623.0" layoutY="358.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="79.0" styleClass="navbutton" stylesheets="@dashboard.css" text="Remove" />
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

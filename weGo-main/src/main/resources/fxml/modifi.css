@@ -1,0 +1,75 @@
+/* Conteneur de la vue modification */
+* {
+    -fx-primary: #e67e22;            /* Orange principale */
+    -fx-primary-dark: #d35400;
+    -fx-primary-light: #f39c12;
+    -fx-secondary: #f1c40f;
+    -fx-secondary-dark: #f39c12;
+    -fx-grey-color: #bdc3c7;
+    -fx-focus-color: -fx-primary;
+}
+
+/* Titre principal */
+.header-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary-dark;
+}
+
+/* Conteneur de la section modification */
+.modif-container {
+    -fx-background-color: -fx-primary;
+    -fx-padding: 30;
+    -fx-spacing: 20;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 12, 0, 0, 6);
+}
+
+/* Titre de la section modification */
+.modif-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary;
+    -fx-padding: 0 0 10 0;
+}
+
+/* Labels des champs */
+.modif-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #2c3e50;
+    -fx-font-weight: bold;
+}
+
+/* Champs de saisie */
+.modif-field {
+    -fx-background-color: white;
+    -fx-border-color: -fx-grey-color;
+    -fx-border-radius: 5;
+    -fx-padding: 8;
+    -fx-font-size: 14px;
+}
+
+.modif-field:focused {
+    -fx-border-color: -fx-primary;
+    -fx-border-width: 2;
+}
+
+/* Bouton Modifier */
+.modif-button {
+    -fx-background-color: -fx-primary-dark;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+    -fx-min-width: 140;
+}
+
+.modif-button:hover {
+    -fx-opacity: 0.9;
+}
+
+.modif-button:pressed {
+    -fx-opacity: 0.8;
+}

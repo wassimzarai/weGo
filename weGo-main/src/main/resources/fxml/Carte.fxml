@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.WebView?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns="http://javafx.com/javafx/8.0.171"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="Controllers.Carte">
+
+    <TextField fx:id="searchField" promptText="Rechercher une localisation..."/>
+    <Button text="Rechercher" onAction="#handleSearch"/>
+    <WebView fx:id="webView" prefHeight="600" />
+</VBox>
+
+

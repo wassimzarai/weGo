@@ -1,0 +1,32 @@
+Date: 11/05/2025 15:34
+De: aycembougattaya357@gmail.com
+À: boxeurbigboss@gmail.com
+Sujet: Action Requise : Résolution de réclamation - Ticket #2025-05-FDEC
+
+--- Corps du message ---
+Bonjour Administrateur,
+
+L'utilisateur a demandé la résolution de cette réclamation qui nécessite votre attention immédiate.
+
+Détails de la réclamation :
+
+======================================================
+NUMÉRO DE TICKET : 2025-05-FDEC
+TITRE : f
+DESCRIPTION : f
+DATE : 2025-05-11
+STATUT : ouvert
+======================================================
+
+Informations utilisateur :
+Nom d'utilisateur : Utilisateur
+Email : utilisateur@exemple.com
+
+Localisation : france
+Coordonnées GPS : 46.603354, 1.888334
+
+Veuillez traiter cette réclamation dans les plus brefs délais.
+Pour résoudre cette réclamation, connectez-vous à l'application d'administration WeGo.
+
+Cordialement,
+Système automatique WeGo

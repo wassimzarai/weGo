@@ -1,0 +1,67 @@
+/* Fond général de l'interface */
+.root {
+    -fx-background-color: #f2f2f2;
+}
+
+/* Style des étiquettes (labels) */
+.label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1ABC9C;  /* Couleur verte pour les labels */
+}
+
+/* Style des TextField, ComboBox et DatePicker */
+.text-field, .combo-box, .date-picker {
+    -fx-pref-height: 35px;
+    -fx-pref-width: 250px;
+    -fx-border-color: #1ABC9C;  /* Bordure verte */
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-padding: 10px 15px;
+    -fx-font-size: 16px;
+    -fx-text-fill: #1ABC9C;  /* Texte vert */
+}
+
+/* Style pour les boutons */
+.button {
+    -fx-background-color: #1ABC9C;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 25px;
+    -fx-pref-height: 45px;
+    -fx-pref-width: 250px;
+    -fx-font-size: 18px;
+    -fx-padding: 10px 25px;
+    -fx-effect: dropshadow(gaussian, #1ABC9C, 10, 0.5, 0, 4);
+}
+
+/* Effet au survol du bouton */
+.button:hover {
+    -fx-background-color: #16A085;
+}
+
+/* Style des ComboBox pour une uniformité */
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #1ABC9C;
+    -fx-border-radius: 15px;
+    -fx-text-fill: #1ABC9C;
+}
+
+/* Personnalisation des Spinner */
+.spinner {
+    -fx-pref-height: 35px;
+    -fx-pref-width: 250px;
+    -fx-border-color: #1ABC9C;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-padding: 10px 15px;
+}
+
+/* Style des DatePicker */
+.date-picker {
+    -fx-background-color: white;
+    -fx-border-color: #1ABC9C;
+    -fx-border-radius: 15px;
+    -fx-text-fill: #1ABC9C;
+}

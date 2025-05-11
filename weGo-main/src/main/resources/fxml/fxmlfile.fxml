@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefHeight="717.0" prefWidth="937.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ViewVoitureController">
+
+    <!-- SplitPane for two sections: Voiture UI (Left) and Conducteur UI (Right) -->
+    <SplitPane fx:id="splitPane" dividerPositions="0.5" orientation="HORIZONTAL" style="-fx-background-color: #f5f5f5;" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="50" AnchorPane.rightAnchor="50" AnchorPane.topAnchor="20">
+        <items>
+            <!-- Left Section: Voiture UI -->
+            <VBox fx:id="voitureContainer" alignment="CENTER" prefHeight="642.0" prefWidth="390.0" spacing="25" style="-fx-background-color: #d0f0c0; -fx-padding: 20; -fx-border-radius: 15; -fx-border-color: #4caf50; -fx-effect: dropshadow(gaussian, #4caf50, 10, 0.5, 0, 0);">
+                <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #388e3c;" text="Gestion des Voitures" />
+                <TextField fx:id="searchField" promptText="Tapez pour filtrer..." style="-fx-font-size: 14px; -fx-background-color: #a7d8b8; -fx-text-fill: #388e3c; -fx-border-radius: 5; -fx-padding: 10px 15px;" />
+
+                <TableView fx:id="voitureTable" style="-fx-background-color: #ffffff; -fx-border-color: #4caf50; -fx-border-radius: 10; -fx-padding: 10px; -fx-effect: dropshadow(gaussian, #81c784, 8, 0.5, 0, 0);">
+                    <columns>
+                        <TableColumn fx:id="idColumn" text="ID" />
+                        <TableColumn fx:id="marqueColumn" text="Marque" />
+                        <TableColumn fx:id="modeleColumn" text="Modèle" />
+                        <TableColumn fx:id="typeColumn" text="Type" />
+                        <TableColumn fx:id="matriculeColumn" text="Matricule" />
+                        <TableColumn fx:id="actionsColumn" text="Actions" />
+                    </columns>
+                </TableView>
+
+                <!-- Buttons with updated styles -->
+                <Button fx:id="addButton" style="-fx-background-color: #66bb6a; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, #388e3c, 10, 0.5, 0, 0); -fx-padding: 10px 20px;" text="Ajouter une Voiture" />
+                <Button fx:id="goToConducteurButton" onAction="#navigateToConducteur" style="-fx-background-color: #66bb6a; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, #388e3c, 10, 0.5, 0, 0); -fx-padding: 10px 20px;" text="Conducteur Page" />
+
+                <!-- New Button for Statistics -->
+                <Button fx:id="goToStatisticsButton" onAction="#navigateToStatistics" style="-fx-background-color: #66bb6a; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, #388e3c, 10, 0.5, 0, 0); -fx-padding: 10px 20px;" text="Voir Statistiques" />
+
+                <!-- New Button "Voir Voiture" -->
+                <Button onAction="#handleVoirVoitureAction" style="-fx-background-color: #43a047; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, #388e3c, 10, 0.5, 0, 0); -fx-padding: 10px 20px;" text="Voir Voiture" />
+
+                <!-- New Button "Modifier" -->
+                <Button fx:id="modifierButton" onAction="#handleModifierButton" style="-fx-background-color: #00c9a7; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-radius: 10; -fx-padding: 10px 20px;" text="Modifier" />
+
+                <!-- New Button "Exporter PDF" -->
+                <Button fx:id="exportPdfButton" onAction="#handleExportPdf" style="-fx-background-color: #1976d2; -fx-text-fill: white; -fx-font-size: 14px; -fx-border-radius: 10; -fx-padding: 10px 20px;" text="Exporter PDF" />
+            </VBox>
+
+            <!-- Right Section: Conducteur UI -->
+            <VBox fx:id="conducteurContainer" alignment="CENTER" prefHeight="676.0" prefWidth="532.0" spacing="25" style="-fx-background-color: #d0f0c0; -fx-border-radius: 15; -fx-border-color: #4caf50; -fx-effect: dropshadow(gaussian, #4caf50, 10, 0.5, 0, 0);">
+                <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #388e3c;" text="Conducteur Management" />
+                <Label style="-fx-font-size: 16px; -fx-text-fill: #777777;" text="Select or manage Conducteurs here." />
+            </VBox>
+
+        </items>
+    </SplitPane>
+</AnchorPane>

@@ -1,0 +1,56 @@
+/* --- Fond --- */
+.app-background {
+    -fx-background-color: linear-gradient(to bottom, #e8f0f9, #ffffff);
+}
+
+/* --- Titres --- */
+.title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+    -fx-padding: 10 0 0 0;
+}
+
+.subtitle {
+    -fx-font-size: 16px;
+    -fx-text-fill: #34495e;
+}
+
+/* --- Boutons --- */
+.primary-button,
+.secondary-button,
+.tertiary-button {
+    -fx-pref-width: 280px;
+    -fx-pref-height: 45px;
+    -fx-background-radius: 30;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 4, 0, 0, 2);
+}
+
+/* Couleurs personnalisées */
+.primary-button {
+    -fx-background-color: #27ae60;
+}
+
+.primary-button:hover {
+    -fx-background-color: #2ecc71;
+}
+
+.secondary-button {
+    -fx-background-color: #2980b9;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #3498db;
+}
+
+.tertiary-button {
+    -fx-background-color: #8e44ad;
+}
+
+.tertiary-button:hover {
+    -fx-background-color: #9b59b6;
+}
