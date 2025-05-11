@@ -9,6 +9,7 @@ package Entites;
     public static String role;
     public static String date;
     public static String activated;
+    public static String active;
 
 
    }
