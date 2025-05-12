@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.layout.StackPane?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CO2Simulation">
+    <!-- Création des axes -->
+    <CategoryAxis fx:id="xAxis" label="Trajet"/>
+    <NumberAxis fx:id="yAxis" label="Émissions CO2 (g)"/>
+
+    <!-- Création de l'AreaChart -->
+    <AreaChart fx:id="areaChart" title="Émission de CO2 par Trajet"
+               prefWidth="800" prefHeight="600">
+        <xAxis>
+            <CategoryAxis fx:id="xAxis" label="Trajet"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis fx:id="yAxis" label="Émissions CO2 (g)"/>
+        </yAxis>
+    </AreaChart>
+</StackPane>

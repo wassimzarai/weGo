@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="739.0" prefWidth="960.0" style="-fx-background-color: #ECF0F1;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SupprimerTrajet">
+
+    <!-- Container principal -->
+    <VBox alignment="TOP_CENTER" spacing="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20" />
+
+     <!-- Titre -->
+     <Label layoutX="291.0" layoutY="20.0" style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #1ABC9C;" text="Gestion des Trajets" />
+
+     <!-- Tableau des trajets -->
+     <TableView fx:id="trajetTable" layoutX="26.0" layoutY="86.0" prefHeight="426.0" prefWidth="920.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #1ABC9C;">
+         <columns>
+             <TableColumn fx:id="idCol" prefWidth="60" text="id_trajet" />
+             <TableColumn fx:id="depCol" prefWidth="120" text="depart" />
+             <TableColumn fx:id="arrCol" prefWidth="120" text="arrivee" />
+             <TableColumn fx:id="dateCol" prefWidth="120" text="date" />
+             <TableColumn fx:id="heureCol" prefWidth="100" text="heure" />
+             <TableColumn fx:id="statCol" prefWidth="100" text="statut" />
+             <TableColumn fx:id="prixCol" prefWidth="100" text="prix_place" />
+             <TableColumn fx:id="nbPlaceCol" prefWidth="119.199951171875" text="nb_place" />
+         <TableColumn fx:id="colvoiture" prefWidth="75.0" text="id_voiture" />
+         </columns>
+     </TableView>
+
+     <!-- Boutons d'action -->
+     <HBox alignment="CENTER" layoutX="221.0" layoutY="452.0" spacing="30" />
+      <Button fx:id="modifierBtn" disable="false" layoutX="238.0" layoutY="528.0" onAction="#onModifier" style="-fx-background-color: #1ABC9C; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 20; -fx-padding: 10 20; -fx-effect: dropshadow(gaussian, #1ABC9C, 10, 0.5, 0, 4);" text="✏️ Modifier">
+            </Button>
+      <Button fx:id="supprimerBtn" disable="false" layoutX="416.0" layoutY="528.0" onAction="#onSupprimer" style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 20; -fx-padding: 10 20; -fx-effect: dropshadow(gaussian, #E74C3C, 10, 0.5, 0, 4);;" text="🗑️ Supprimer">
+            </Button>
+   <Button fx:id="idback" layoutX="26.0" layoutY="605.0" mnemonicParsing="false" onAction="#buttonback" prefHeight="63.0" prefWidth="88.0" style="-fx-background-color: #1ABC9C; -fx-text-fill: white; -fx-effect: dropshadow(gaussian, #1ABC9C, 10, 0.5, 0, 4);" text="🔙 ">
+      <font>
+         <Font size="32.0" />
+      </font>
+   </Button>
+   <Button fx:id="buttonCO2" layoutX="603.0" layoutY="525.0" mnemonicParsing="false" onAction="#buttonCO2" prefHeight="58.0" prefWidth="241.0" style="-fx-background-color: #FFA500; -fx-text-fill: white; -fx-font-size: 16px; -fx-background-radius: 20; -fx-padding: 10 20; -fx-effect: dropshadow(gaussian, #FFA500, 10, 0.5, 0, 4);" text="Voir mon impact ecologique" />
+   <ProgressIndicator fx:id="loadingIndicator" disable="true" layoutX="637.0" layoutY="549.0" prefHeight="11.0" prefWidth="11.0" progress="0.0" />
+
+</AnchorPane>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="731.0" prefWidth="1171.0" style="-fx-background-color: #ECF0F1;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AfficherTrajet">
+
+     <!-- Grand titre -->
+     <Label layoutX="381.0" layoutY="66.0" prefHeight="39.0" prefWidth="293.0" style="-fx-font-size: 32px; -fx-font-family: 'Segoe UI'; -fx-font-weight: bold; -fx-text-fill: #1ABC9C;" text="Liste des Trajets" />
+
+     <!-- Tableau des trajets -->
+     <TableView fx:id="trajetTable" layoutX="98.0" layoutY="125.0" prefHeight="444.0" prefWidth="772.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #1ABC9C;">
+         <columns>
+             <TableColumn fx:id="idTrajetColumn" prefWidth="74.40003204345703" text="id_trajet" />
+             <TableColumn fx:id="departColumn" prefWidth="76.0" text="depart" />
+             <TableColumn fx:id="arriveeColumn" prefWidth="100" text="arrivee" />
+             <TableColumn fx:id="dateColumn" prefWidth="120" text="date" />
+             <TableColumn fx:id="heureColumn" prefWidth="100" text="heure" />
+             <TableColumn fx:id="statutColumn" prefWidth="100" text="statut" />
+             <TableColumn fx:id="prixColumn" prefWidth="80" text="prix_place" />
+         <TableColumn fx:id="nbrplacescolumn" prefWidth="118.400146484375" text="nb_place" />
+         </columns>
+     </TableView>
+
+</AnchorPane>

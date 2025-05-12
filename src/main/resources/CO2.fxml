@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controllers.CO2">
+
+    <AreaChart fx:id="areaChart"
+
+
+               title="CO2 par trajet">
+        <xAxis>
+            <CategoryAxis fx:id="xAxis" label="Trajets"/>
+        </xAxis>
+        <yAxis>
+            <NumberAxis fx:id="yAxis" label="Émissions de CO2 (kg)"/>
+        </yAxis>
+    </AreaChart>
+
+</AnchorPane>

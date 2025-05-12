@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" prefHeight="800.0" prefWidth="1200.0" styleClass="app-background" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Principal">
+
+    <Label layoutX="30.0" layoutY="20.0" style="-fx-text-fill: white; -fx-font-weight: bold;" text="WeGo - Gestion des trajets">
+        <font>
+            <Font size="24.0" />
+        </font>
+    </Label>
+
+    <ImageView fx:id="logoImage" fitHeight="770.0" fitWidth="1099.0" layoutY="-5.0" preserveRatio="true">
+        <image>
+            <Image url="@depositphotos_295004350-stock-photo-woman-driving-highway-bridge-view (1).jpg" />
+        </image>
+        <effect>
+            <Lighting diffuseConstant="0.72" specularConstant="1.05" specularExponent="20.73" surfaceScale="4.53">
+                <bumpInput>
+                    <Shadow radius="28.13" width="93.52" />
+                </bumpInput>
+                <light>
+                    <Light.Distant azimuth="35.09" elevation="45.0">
+                        <color>
+                            <Color red="1.0" green="1.0" blue="1.0" />
+                        </color>
+                    </Light.Distant>
+                </light>
+            </Lighting>
+        </effect>
+    </ImageView>
+
+    <Label layoutX="369.0" layoutY="269.0" prefWidth="600.0" styleClass="subtitle" text="TROUVEZ UN COVOITURAGE">
+        <font>
+            <Font name="Arial Rounded MT Bold" size="30.0" />
+        </font>
+        <effect>
+            <Lighting diffuseConstant="0.85">
+                <bumpInput>
+                    <Shadow />
+                </bumpInput>
+            </Lighting>
+        </effect>
+    </Label>
+
+    <Button fx:id="proposeButton" layoutX="189.0" layoutY="392.0" onAction="#handlePropose" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #1ABC9C; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 25px;" text="Proposer un trajet" />
+
+    <Button fx:id="searchButton" layoutX="417.0" layoutY="392.0" onAction="#handleSearch" prefHeight="50.0" prefWidth="220.0" style="-fx-background-color: #1ABC9C; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 25px;" text="Rechercher un trajet" />
+
+    <Button fx:id="contactButton" layoutX="688.0" layoutY="392.0" onAction="#handleContact" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #1ABC9C; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 25px;" text="Voir mes trajets" />
+</AnchorPane>
