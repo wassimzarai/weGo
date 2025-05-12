@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+
+<BorderPane prefHeight="700.0" prefWidth="1000.0" styleClass="main-container" 
+            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="gui.ListeReservationsController">
+    
+    <!-- En-tête avec dégradé et ombre -->
+    <top>
+        <VBox alignment="CENTER" spacing="15" styleClass="header">
+            <padding>
+                <Insets top="25" right="25" bottom="20" left="25" />
+            </padding>
+            
+            <!-- Logo et titre -->
+            <HBox alignment="CENTER" spacing="15">
+                <ImageView fitHeight="48.0" fitWidth="48.0" preserveRatio="true">
+                    <Image url="@/images/logo.png" />
+                </ImageView>
+                <Label fx:id="appTitleLabel" text="Gestion des réservations" styleClass="title-label">
+                    <font>
+                        <Font name="System Bold" size="30.0" />
+                    </font>
+                    <effect>
+                        <DropShadow color="#00000040" radius="3.0" spread="0.1" />
+                    </effect>
+                </Label>
+            </HBox>
+            
+            <Separator styleClass="header-separator" />
+            
+            <!-- Description -->
+            <Label text="Système de gestion des réservations et abonnements" 
+                   styleClass="subtitle-label" />
+        </VBox>
+    </top>
+    
+    <!-- Contenu principal avec TableView stylisée -->
+    <center>
+        <VBox spacing="15">
+            <padding>
+                <Insets top="20" right="25" bottom="20" left="25" />
+            </padding>
+            
+            <!-- Zone de notification -->
+            <VBox fx:id="notificationArea" visible="false" managed="false" styleClass="notification-box">
+                <Label fx:id="notificationTitle" styleClass="notification-title" />
+                <Label fx:id="notificationMessage" styleClass="notification-message" />
+            </VBox>
+            
+            <!-- En-tête de la table -->
+            <HBox alignment="CENTER_LEFT" styleClass="list-header">
+                <padding>
+                    <Insets top="10" right="15" bottom="10" left="15" />
+                </padding>
+                <Label text="Liste des Trajets Disponibles" styleClass="section-title">
+                    <font>
+                        <Font name="System Bold" size="16.0" />
+                    </font>
+                </Label>
+                <Region HBox.hgrow="ALWAYS" />
+                <TextField fx:id="filterField" promptText="Rechercher un trajet..." prefWidth="250" styleClass="search-field" />
+            </HBox>
+            
+            <!-- Table des réservations avec effet d'ombre -->
+            <TableView fx:id="reservationsTable" VBox.vgrow="ALWAYS" styleClass="reservations-table">
+                <columns>
+                    <TableColumn fx:id="statusCol" text="" prefWidth="40" />
+                    <TableColumn fx:id="idCol" text="ID" prefWidth="50" />
+                    <TableColumn fx:id="nameCol" text="Passager" prefWidth="150" />
+                    <TableColumn fx:id="dateCol" text="Date" prefWidth="100" />
+                    <TableColumn fx:id="routeCol" text="Trajet" prefWidth="220" />
+                    <TableColumn fx:id="statusTextCol" text="Statut" prefWidth="100" />
+                    <TableColumn fx:id="typeCol" text="Type" prefWidth="100" />
+                    <TableColumn fx:id="actionsCol" text="Actions" prefWidth="120" />
+                </columns>
+                <effect>
+                    <DropShadow color="#00000026" radius="5.0" spread="0.05" />
+                </effect>
+                <placeholder>
+                    <Label text="Aucun trajet disponible" style="-fx-text-fill: #95a5a6; -fx-font-style: italic;" />
+                </placeholder>
+            </TableView>
+            
+            <!-- Statistiques -->
+            <HBox spacing="20" alignment="CENTER" styleClass="stats-container">
+                <Label fx:id="totalReservationsLabel" text="Total: 0 trajets" styleClass="stats-label" />
+                <Separator orientation="VERTICAL" />
+                <Label fx:id="confirmeeLabel" text="Confirmés: 0" styleClass="stats-label-confirmed" />
+                <Separator orientation="VERTICAL" />
+                <Label fx:id="enAttenteLabel" text="En attente: 0" styleClass="stats-label-pending" />
+                <Separator orientation="VERTICAL" />
+                <Label fx:id="annuleeLabel" text="Annulés: 0" styleClass="stats-label-canceled" />
+            </HBox>
+        </VBox>
+    </center>
+    
+    <!-- Barre d'actions avec boutons améliorés -->
+    <bottom>
+        <VBox styleClass="actions-container">
+            <padding>
+                <Insets top="15" right="25" bottom="25" left="25" />
+            </padding>
+            
+            <Separator styleClass="footer-separator" />
+            
+            <HBox alignment="CENTER" spacing="20" styleClass="button-container">
+                <padding>
+                    <Insets top="20" bottom="5" />
+                </padding>
+                
+                <!-- Bouton Ajouter -->
+                <Button fx:id="btnAjouter" onAction="#ouvrirAjout" styleClass="action-button, carpool-add-button" 
+                        prefWidth="150" prefHeight="40">
+                    <graphic>
+                        <HBox alignment="CENTER" spacing="10">
+                            <Label text="+" styleClass="button-icon" />
+                            <Label text="Nouveau Trajet" />
+                        </HBox>
+                    </graphic>
+                    <effect>
+                        <DropShadow color="#00000040" radius="5.0" spread="0.05" />
+                    </effect>
+                </Button>
+                
+                <!-- Bouton Réservation Automatique -->
+                <Button fx:id="btnReservationAuto" onAction="#ouvrirReservationAutomatique" 
+                        styleClass="action-button, carpool-auto-button" 
+                        prefWidth="170" prefHeight="40">
+                    <graphic>
+                        <HBox alignment="CENTER" spacing="10">
+                            <Label text="⚡" styleClass="button-icon" />
+                            <Label text="Réservation Auto" />
+                        </HBox>
+                    </graphic>
+                    <effect>
+                        <DropShadow color="#00000040" radius="5.0" spread="0.05" />
+                    </effect>
+                </Button>
+                
+                <!-- Bouton Modifier -->
+                <Button fx:id="btnModifier" onAction="#ouvrirModifier" styleClass="action-button, carpool-edit-button" 
+                        prefWidth="120" prefHeight="40">
+                    <graphic>
+                        <HBox alignment="CENTER" spacing="10">
+                            <Label text="✎" styleClass="button-icon" />
+                            <Label text="Modifier" />
+                        </HBox>
+                    </graphic>
+                    <effect>
+                        <DropShadow color="#00000040" radius="5.0" spread="0.05" />
+                    </effect>
+                </Button>
+                
+                <!-- Bouton Supprimer -->
+                <Button fx:id="btnSupprimer" onAction="#supprimerReservation" styleClass="action-button, carpool-delete-button" 
+                        prefWidth="120" prefHeight="40">
+                    <graphic>
+                        <HBox alignment="CENTER" spacing="10">
+                            <Label text="✕" styleClass="button-icon" />
+                            <Label text="Supprimer" />
+                        </HBox>
+                    </graphic>
+                    <effect>
+                        <DropShadow color="#00000040" radius="5.0" spread="0.05" />
+                    </effect>
+                </Button>
+                
+                <!-- Bouton Détails -->
+                <Button fx:id="btnDetails" onAction="#afficherDetails" styleClass="action-button, carpool-details-button" 
+                        prefWidth="120" prefHeight="40">
+                    <graphic>
+                        <HBox alignment="CENTER" spacing="10">
+                            <Label text="ℹ" styleClass="button-icon" />
+                            <Label text="Détails" />
+                        </HBox>
+                    </graphic>
+                    <effect>
+                        <DropShadow color="#00000040" radius="5.0" spread="0.05" />
+                    </effect>
+                </Button>
+                
+                <!-- Bouton Export PDF - NOUVEAU -->
+                <Button fx:id="btnExportPDF" onAction="#exporterPDF" 
+                        styleClass="action-button, carpool-export-button" 
+                        prefWidth="150" prefHeight="40">
+                    <graphic>
+                        <HBox alignment="CENTER" spacing="10">
+                            <Label text="📄" styleClass="button-icon" />
+                            <Label text="Exporter PDF" />
+                        </HBox>
+                    </graphic>
+                    <effect>
+                        <DropShadow color="#00000040" radius="5.0" spread="0.05" />
+                    </effect>
+                </Button>
+                
+                <!-- Bouton Rafraîchir -->
+                <Button fx:id="btnRafraichir" onAction="#rafraichirListe" styleClass="action-button, carpool-refresh-button" 
+                        prefWidth="120" prefHeight="40">
+                    <graphic>
+                        <HBox alignment="CENTER" spacing="10">
+                            <Label text="↻" styleClass="button-icon" />
+                            <Label text="Rafraîchir" />
+                        </HBox>
+                    </graphic>
+                    <effect>
+                        <DropShadow color="#00000040" radius="5.0" spread="0.05" />
+                    </effect>
+                </Button>
+                
+                <!-- Bouton Abonnements -->
+                <Button fx:id="btnAbonnements" onAction="#ouvrirAbonnements" styleClass="action-button, carpool-details-button" 
+                        prefWidth="150" prefHeight="40">
+                    <graphic>
+                        <HBox alignment="CENTER" spacing="10">
+                            <Label text="🗂️" styleClass="button-icon" />
+                            <Label text="Abonnements" />
+                        </HBox>
+                    </graphic>
+                    <effect>
+                        <DropShadow color="#00000040" radius="5.0" spread="0.05" />
+                    </effect>
+                </Button>
+                
+                <!-- Bouton Messagerie -->
+                <Button fx:id="btnMessagerie" onAction="#ouvrirMessagerie" styleClass="action-button" style="-fx-background-color: #9b59b6; -fx-text-fill: white; -fx-font-weight: bold;" prefWidth="150" prefHeight="40">
+                    <graphic>
+                        <HBox alignment="CENTER" spacing="10">
+                            <Label text="💬" styleClass="button-icon" />
+                            <Label text="Messagerie" />
+                        </HBox>
+                    </graphic>
+                    <effect>
+                        <DropShadow color="#00000040" radius="5.0" spread="0.05" />
+                    </effect>
+                </Button>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane> 
