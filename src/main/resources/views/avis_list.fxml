@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gui.AvisController"
+            prefHeight="600.0" prefWidth="800.0">
+    
+    <VBox spacing="15" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" 
+          AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="20">
+        
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <Button text="← Accueil" onAction="#backToHome"
+                   style="-fx-background-color: #9E9E9E; -fx-text-fill: white;"/>
+            <Label text="Mes Avis" style="-fx-font-size: 24; -fx-font-weight: bold"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Nouvel Avis" onAction="#showAddAvis"
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        </HBox>
+        
+        <!-- Search Bar -->
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10 0 5 0;">
+            <TextField fx:id="searchAvisField" promptText="Rechercher un avis..." 
+                       HBox.hgrow="ALWAYS" onKeyReleased="#handleSearchAvis"/>
+            <ComboBox fx:id="searchAvisFilterCombo" promptText="Filtre">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Tous" />
+                        <String fx:value="Par commentaire" />
+                        <String fx:value="Par note" />
+                        <String fx:value="Par date" />
+                        <String fx:value="Par utilisateur" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <Button text="Rechercher" onAction="#handleSearchAvis"
+                   style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+        </HBox>
+        
+        <!-- TableView pour afficher les avis -->
+        <TableView fx:id="avisTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="idColumn" text="ID" prefWidth="50"/>
+                <TableColumn fx:id="noteColumn" text="Note" prefWidth="50"/>
+                <TableColumn fx:id="satisfactionColumn" text="Satisfaction" prefWidth="120"/>
+                <TableColumn fx:id="commentaireColumn" text="Commentaire" prefWidth="250"/>
+                <TableColumn fx:id="dateColumn" text="Date" prefWidth="100"/>
+                <TableColumn fx:id="userColumn" text="Utilisateur" prefWidth="150"/>
+            </columns>
+            <placeholder>
+                <Label text="Aucun avis disponible" />
+            </placeholder>
+        </TableView>
+        
+        <!-- Star Rating Display -->
+        <VBox style="-fx-background-color: #f8f9fa; -fx-border-color: #e9ecef; -fx-border-radius: 5;">
+            <padding>
+                <Insets top="15" right="20" bottom="15" left="20"/>
+            </padding>
+            
+            <Label text="Sélectionnez une note" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
+            
+            <HBox spacing="10" alignment="CENTER" style="-fx-padding: 10 0 5 0;">
+                <Text fx:id="tableStar1" text="★" style="-fx-font-size: 30px; -fx-fill: #dddddd;"/>
+                <Text fx:id="tableStar2" text="★" style="-fx-font-size: 30px; -fx-fill: #dddddd;"/>
+                <Text fx:id="tableStar3" text="★" style="-fx-font-size: 30px; -fx-fill: #dddddd;"/>
+                <Text fx:id="tableStar4" text="★" style="-fx-font-size: 30px; -fx-fill: #dddddd;"/>
+                <Text fx:id="tableStar5" text="★" style="-fx-font-size: 30px; -fx-fill: #dddddd;"/>
+            </HBox>
+            
+            <Label fx:id="tableRatingLabel" text="Cliquez sur une étoile pour noter" 
+                   style="-fx-font-size: 12px; -fx-text-fill: #6c757d; -fx-alignment: center;"
+                   HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        </VBox>
+        
+        <!-- Boutons d'action -->
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button text="Modifier" onAction="#handleUpdateAvis" 
+                    style="-fx-background-color: #FFA726; -fx-text-fill: white;"/>
+            <Button text="Supprimer" onAction="#handleDeleteAvis" 
+                    style="-fx-background-color: #F44336; -fx-text-fill: white;"/>
+        </HBox>
+    </VBox>
+</AnchorPane> 

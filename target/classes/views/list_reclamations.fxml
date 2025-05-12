@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gui.ReclamationController"
+            prefHeight="700.0" prefWidth="1000.0"
+            styleClass="main-container">
+    
+    <VBox spacing="20" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" 
+          AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+        
+        <!-- Header Section -->
+        <HBox styleClass="header">
+            <padding>
+                <Insets top="20" right="30" bottom="20" left="30"/>
+            </padding>
+            <VBox spacing="5">
+                <Label text="Mes Réclamations" styleClass="title-label"/>
+                <Label text="Gérez vos réclamations et suivez leur statut" styleClass="subtitle-label"/>
+            </VBox>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="+ Nouvelle Réclamation" onAction="#showAddReclamation"
+                    styleClass="add-button"/>
+        </HBox>
+        
+        <!-- Search Bar -->
+        <HBox styleClass="search-container" spacing="10">
+            <padding>
+                <Insets top="0" right="30" bottom="0" left="30"/>
+            </padding>
+            <TextField fx:id="searchReclamationField" promptText="Rechercher par titre, description ou statut..." 
+                       HBox.hgrow="ALWAYS" onKeyReleased="#handleSearchReclamation"/>
+            <ComboBox fx:id="searchFilterCombo" promptText="Filtre">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Tous" />
+                        <String fx:value="Par titre" />
+                        <String fx:value="Par description" />
+                        <String fx:value="Par statut" />
+                        <String fx:value="Par date" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <Button text="Rechercher" onAction="#handleSearchReclamation" styleClass="search-button"/>
+        </HBox>
+
+        <!-- Main Content -->
+        <SplitPane dividerPositions="0.65" VBox.vgrow="ALWAYS" styleClass="content-split-pane">
+            <!-- Left side: Reclamations cards -->
+            <VBox styleClass="cards-section">
+                <ScrollPane fitToWidth="true" styleClass="cards-scroll-pane" VBox.vgrow="ALWAYS">
+                    <VBox fx:id="reclamationsContainer" spacing="15" styleClass="cards-container">
+                        <padding>
+                            <Insets top="20" right="20" bottom="20" left="20"/>
+                        </padding>
+                    </VBox>
+                </ScrollPane>
+            </VBox>
+            
+            <!-- Right side: Details panel -->
+            <VBox styleClass="details-panel">
+                <padding>
+                    <Insets top="25" right="25" bottom="25" left="25"/>
+                </padding>
+                
+                <Label text="Détails de la Réclamation" styleClass="section-title"/>
+                
+                <VBox spacing="20" styleClass="details-content">
+                    <padding>
+                        <Insets top="20"/>
+                    </padding>
+                    
+                    <VBox spacing="5">
+                        <Label text="Titre" styleClass="field-label"/>
+                        <Label fx:id="detailTitreLabel" styleClass="field-value" wrapText="true"/>
+                    </VBox>
+                    
+                    <VBox spacing="5">
+                        <Label text="Description" styleClass="field-label"/>
+                        <TextArea fx:id="detailDescriptionArea" wrapText="true" editable="false" 
+                                 prefRowCount="6" styleClass="description-area"/>
+                    </VBox>
+                    
+                    <HBox spacing="30">
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <Label text="Date" styleClass="field-label"/>
+                            <Label fx:id="detailDateLabel" styleClass="field-value"/>
+                        </VBox>
+                        
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <Label text="Statut" styleClass="field-label"/>
+                            <Label fx:id="detailStatutLabel" styleClass="status-badge"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+                
+                <Region VBox.vgrow="ALWAYS"/>
+                
+                <HBox spacing="15" alignment="CENTER_RIGHT" styleClass="actions-container">
+                    <Button text="Modifier" onAction="#handleEditReclamation"
+                            styleClass="edit-button"/>
+                    <Button text="Supprimer" onAction="#handleDeleteReclamation"
+                            styleClass="delete-button"/>
+                </HBox>
+            </VBox>
+        </SplitPane>
+    </VBox>
+</AnchorPane> 

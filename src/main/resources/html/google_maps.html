@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps Integration</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+        .info-window {
+            font-family: Arial, sans-serif;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script>
+        var map;
+        var marker;
+        
+        // Initialiser la carte
+        function initMap(lat, lng) {
+            var defaultCenter = {lat: lat || 36.8065, lng: lng || 10.1815}; // Tunis par défaut
+            
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: defaultCenter,
+                zoom: 13,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                mapTypeControl: true,
+                streetViewControl: false,
+                fullscreenControl: false
+            });
+            
+            // Ajouter un marqueur initial
+            marker = new google.maps.Marker({
+                position: defaultCenter,
+                map: map,
+                draggable: true,
+                animation: google.maps.Animation.DROP
+            });
+            
+            // Écouter les événements de clic sur la carte
+            google.maps.event.addListener(map, 'click', function(event) {
+                placeMarker(event.latLng);
+                
+                // Appeler la fonction Java via une interface JSObject
+                updateCoordinates(event.latLng.lat(), event.latLng.lng());
+            });
+            
+            // Écouter le déplacement du marqueur
+            google.maps.event.addListener(marker, 'dragend', function(event) {
+                updateCoordinates(marker.getPosition().lat(), marker.getPosition().lng());
+            });
+        }
+        
+        // Placer un marqueur à une position donnée
+        function placeMarker(location) {
+            if (marker) {
+                marker.setPosition(location);
+            } else {
+                marker = new google.maps.Marker({
+                    position: location,
+                    map: map,
+                    draggable: true
+                });
+            }
+            
+            map.setCenter(location);
+        }
+        
+        // Mettre à jour le marqueur avec de nouvelles coordonnées
+        function updateMarker(lat, lng) {
+            var newPosition = new google.maps.LatLng(lat, lng);
+            placeMarker(newPosition);
+        }
+        
+        // Fonction appelée par Java pour obtenir les coordonnées
+        function updateCoordinates(lat, lng) {
+            // Cette fonction sera remplacée par le code Java
+            console.log("Coordinates updated: " + lat + ", " + lng);
+        }
+    </script>
+    
+    <!-- Charger l'API Google Maps sans clé API pour la démo -->
+    <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script>
+    
+    <!-- En production, utiliser une vraie clé API: -->
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script> -->
+</body>
+</html> 

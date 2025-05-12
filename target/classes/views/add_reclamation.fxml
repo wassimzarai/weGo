@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gui.ReclamationController"
+            prefHeight="650.0" prefWidth="800.0"
+            stylesheets="/styles/global.css">
+    
+    <VBox spacing="15" AnchorPane.topAnchor="15" AnchorPane.leftAnchor="15" 
+          AnchorPane.rightAnchor="15" AnchorPane.bottomAnchor="15">
+          
+        <HBox alignment="CENTER_LEFT" spacing="10">
+            <Button fx:id="btnBack" styleClass="back-button" onAction="#backToReclamations" />
+            <Label text="Nouvelle Réclamation" styleClass="page-title" />
+        </HBox>
+        
+        <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+            <VBox spacing="15" style="-fx-padding: 10;">
+                
+                <!-- Formulaire de réclamation -->
+                <VBox spacing="10" styleClass="form-section">
+                    <Label text="Informations principales" styleClass="section-header" />
+                    
+                    <HBox spacing="15">
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <Label text="Titre" />
+                            <TextField fx:id="titreField" promptText="Titre de la réclamation" />
+                        </VBox>
+                        
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <Label text="Date" />
+                            <DatePicker fx:id="dateField" promptText="Date de l'incident" />
+                        </VBox>
+                    </HBox>
+                    
+                    <VBox spacing="5">
+                        <Label text="Description" />
+                        <TextArea fx:id="descriptionField" promptText="Description détaillée" 
+                                 prefHeight="100" wrapText="true" />
+                    </VBox>
+                </VBox>
+                
+                <!-- Section géolocalisation -->
+                <VBox spacing="10" styleClass="form-section">
+                    <Label text="Localisation" styleClass="section-header" />
+                    
+                    <HBox spacing="15">
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <Label text="Adresse" />
+                            <HBox spacing="5" alignment="CENTER_LEFT">
+                                <TextField fx:id="adresseField" promptText="Entrez l'adresse pour la localiser sur la carte" HBox.hgrow="ALWAYS" />
+                            </HBox>
+                        </VBox>
+                        
+                        <Button fx:id="btnChercher" text="Rechercher" onAction="#chercherAdresse"
+                                style="-fx-min-width: 120px; -fx-min-height: 30px; -fx-background-color: #1a73e8; -fx-text-fill: white;" />
+                    </HBox>
+                    
+                    <HBox spacing="5">
+                        <CheckBox fx:id="useCurrentLocation" text="Utiliser ma position actuelle" 
+                                 onAction="#toggleUseCurrentLocation" />
+                    </HBox>
+                    
+                    <!-- Zone de carte avec instructions -->
+                    <VBox spacing="5">
+                        <Label text="La carte sera automatiquement mise à jour avec l'adresse recherchée, ou cliquez directement sur la carte" 
+                               style="-fx-font-style: italic; -fx-font-weight: bold; -fx-text-fill: #1a73e8;" />
+                        <VBox fx:id="mapContainer" alignment="CENTER" prefHeight="300" 
+                              style="-fx-background-color: #f5f5f5; -fx-border-color: #ddd; -fx-border-width: 1px;" />
+                    </VBox>
+                    
+                    <HBox spacing="15">
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <Label text="Latitude" />
+                            <TextField fx:id="latitudeField" promptText="Latitude" editable="false" />
+                        </VBox>
+                        
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <Label text="Longitude" />
+                            <TextField fx:id="longitudeField" promptText="Longitude" editable="false" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+                
+                <!-- Classification automatique -->
+                <VBox spacing="10" styleClass="form-section">
+                    <Label text="Classification automatique" styleClass="section-header" />
+                    
+                    <Text fx:id="analyseTexte" wrappingWidth="750"
+                         style="-fx-font-style: italic; -fx-fill: #666666;">
+                        La réclamation sera automatiquement analysée pour déterminer sa gravité,
+                        sa catégorie et sa priorité de traitement.
+                    </Text>
+                    
+                    <HBox spacing="15">
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <Label text="Catégorie estimée" />
+                            <TextField fx:id="categorieField" promptText="Sera déterminée automatiquement" 
+                                      editable="false" />
+                        </VBox>
+                        
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <Label text="Gravité estimée" />
+                            <TextField fx:id="graviteField" promptText="Sera déterminée automatiquement" 
+                                      editable="false" />
+                        </VBox>
+                        
+                        <VBox spacing="5" HBox.hgrow="ALWAYS">
+                            <Label text="Priorité estimée" />
+                            <TextField fx:id="prioriteField" promptText="Sera déterminée automatiquement" 
+                                      editable="false" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+                
+                <!-- Assistant IA -->
+                <VBox spacing="10" styleClass="form-section">
+                    <Label text="Assistant IA" styleClass="section-header" />
+                    
+                    <TextArea fx:id="assistantText" prefHeight="100" 
+                             style="-fx-background-color: #f8f9fa; -fx-border-color: #dadce0;"
+                             wrapText="true" editable="false" />
+                     
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <TextField fx:id="questionField" promptText="Posez une question à l'assistant..." 
+                                  HBox.hgrow="ALWAYS" />
+                        <Button fx:id="btnQuestion" text="Envoyer" onAction="#poserQuestion" />
+                    </HBox>
+                </VBox>
+                
+                <!-- Boutons d'action -->
+                <HBox spacing="15" alignment="CENTER_RIGHT">
+                    <Button fx:id="btnAnalyser" text="Analyser" onAction="#analyserReclamation"
+                            style="-fx-background-color: #fbbc04; -fx-text-fill: #333333;" />
+                    <Button fx:id="btnAjouter" text="Soumettre la réclamation" onAction="#ajouterReclamation"
+                            style="-fx-background-color: #34a853; -fx-text-fill: white;" />
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </VBox>
+</AnchorPane> 

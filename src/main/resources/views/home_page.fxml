@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gui.HomeController"
+            prefHeight="720.0" prefWidth="1280.0"
+            fx:id="mainAnchorPane"
+            stylesheets="/styles/global.css, /styles/home.css">
+    
+    <StackPane AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" 
+               AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+        
+        <!-- Overlay blanc avec dégradé -->
+        <Rectangle fx:id="overlay" width="1280" height="720" styleClass="background-overlay"/>
+        
+        <!-- Contenu principal avec espacement entre les éléments -->
+        <VBox spacing="20" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="20" right="30" bottom="20" left="30"/>
+            </padding>
+            
+            <!-- Section utilisateur -->
+            <HBox spacing="25" alignment="CENTER">
+                <!-- Panneau utilisateur à gauche -->
+                <VBox styleClass="user-panel" minWidth="280" maxWidth="280">
+                    <HBox alignment="CENTER" spacing="12">
+                        <StackPane>
+                            <Circle radius="30" styleClass="logo-background" fill="white"/>
+                            <ImageView fitHeight="50" fitWidth="50" preserveRatio="true" styleClass="logo-image">
+                                <Image url="@/images/logo (2).png" />
+                    </ImageView>
+                        </StackPane>
+                        <Label text="WeGo" styleClass="title-label" />
+                        
+                        <!-- Indicateur de notification -->
+                        <StackPane styleClass="notification-indicator">
+                            <Circle radius="7" styleClass="notification-circle" fill="#ea4335"/>
+                            <Label text="3" styleClass="notification-label" />
+                        </StackPane>
+                    </HBox>
+                    
+                    <Separator styleClass="separator">
+                        <VBox.margin>
+                            <Insets top="15" bottom="15"/>
+                        </VBox.margin>
+                    </Separator>
+                    
+                    <!-- Avatar utilisateur et informations -->
+                    <HBox spacing="12" alignment="CENTER">
+                        <StackPane>
+                            <Circle radius="28" styleClass="avatar-circle" fill="#f1f3f4"/>
+                            <SVGPath content="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" 
+                                    styleClass="avatar-icon"/>
+                        </StackPane>
+                        <VBox spacing="2">
+                            <Label text="Aycem Bougattaya" styleClass="user-info-label" />
+                            <HBox spacing="5" alignment="CENTER_LEFT">
+                                <SVGPath content="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" 
+                                         styleClass="info-icon"/>
+                                <Label text="Premium" styleClass="premium-label" />
+                            </HBox>
+                        </VBox>
+                    </HBox>
+                    
+                    <VBox spacing="5">
+                        <VBox.margin>
+                            <Insets top="15" bottom="10"/>
+                        </VBox.margin>
+                        
+                        <HBox spacing="8" alignment="CENTER_LEFT">
+                            <SVGPath content="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" 
+                                     styleClass="info-icon"/>
+                            <Label text="aycem.bougattaya@email.com" styleClass="user-detail-label" />
+                        </HBox>
+                        
+                        <HBox spacing="8" alignment="CENTER_LEFT">
+                            <SVGPath content="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" 
+                                     styleClass="info-icon"/>
+                            <Label text="26584091" styleClass="user-detail-label" />
+                        </HBox>
+                    </VBox>
+                    
+                    <!-- Image de profil - remplace le bouton d'édition -->
+                    <StackPane styleClass="profile-image-container">
+                        <Circle radius="42" fill="white" opacity="0.9"/>
+                        <ImageView fitHeight="80" fitWidth="80" preserveRatio="true">
+                            <Image url="@/images/logo (2).png" />
+                        </ImageView>
+                        <StackPane styleClass="profile-badge">
+                            <Circle radius="12" fill="#1a73e8"/>
+                            <SVGPath content="M3,5H9V11H3V5M5,7V9H7V7H5M11,7H21V9H11V7M11,15H21V17H11V15M5,13V15H7V13H5M3,13H9V19H3V13Z" fill="white" scaleX="0.6" scaleY="0.6"/>
+                        </StackPane>
+                    </StackPane>
+                    
+                    <!-- Statut d'activité -->
+                    <HBox styleClass="status-box" alignment="CENTER">
+                        <Circle radius="5" styleClass="status-indicator" fill="#34a853" />
+                        <Label text="En ligne" styleClass="status-label" />
+                    </HBox>
+                </VBox>
+                
+                <!-- Contenu central -->
+                <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                    <HBox alignment="CENTER" spacing="12">
+                        <ImageView fx:id="logoView" fitHeight="45" fitWidth="45" preserveRatio="true" styleClass="logo-image" />
+                        <VBox alignment="CENTER">
+                            <Label text="WeGo - Avis et Réclamation" styleClass="title-label" />
+                            <Label text="Ensemble, plus loin." styleClass="tagline" />
+                        </VBox>
+                    </HBox>
+                    
+                    <!-- Date d'aujourd'hui -->
+                    <HBox alignment="CENTER" styleClass="date-container">
+                        <SVGPath content="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z" 
+                                 styleClass="date-icon"/>
+                        <Label fx:id="currentDateLabel" text="Dimanche, 5 mai 2024" styleClass="date-label" />
+                </HBox>
+                </VBox>
+            
+                <!-- Espace vide à droite pour équilibrer la mise en page -->
+                <VBox minWidth="280" maxWidth="280">
+                </VBox>
+            </HBox>
+            
+            <!-- Cards Container -->
+            <HBox spacing="25" alignment="CENTER" VBox.vgrow="ALWAYS" styleClass="cards-container">
+                <!-- Réclamations Card -->
+                <VBox styleClass="menu-box" prefWidth="400.0" prefHeight="250.0">
+                    <padding>
+                        <Insets top="22" right="22" bottom="22" left="22"/>
+                    </padding>
+                    
+                    <!-- Icon et titre avec badge de notification -->
+                    <HBox spacing="18" alignment="CENTER_LEFT">
+                        <StackPane styleClass="icon-container" style="-fx-background-color: linear-gradient(to bottom right, rgba(26, 115, 232, 0.1), rgba(30, 136, 229, 0.15));">
+                            <SVGPath fx:id="reclamationIcon" content="M20,2H4C2.9,2 2,2.9 2,4V22L6,18H20C21.1,18 22,17.1 22,16V4C22,2.9 21.1,2 20,2M6,9H18V11H6M14,14H6V12H14M18,8H6V6H18" styleClass="category-icon" />
+                    </StackPane>
+                        <Label text="Mes Réclamations" styleClass="header-label"/>
+                        
+                        <!-- Badge avec nombre de nouvelles réclamations -->
+                        <StackPane styleClass="number-badge">
+                            <Circle radius="12" fill="rgba(26, 115, 232, 0.15)" strokeWidth="1.5" stroke="#1a73e8"/>
+                            <Label text="2" styleClass="badge-text" />
+                        </StackPane>
+                    </HBox>
+                    
+                    <Label text="Gérez facilement vos réclamations et suivez le statut en temps réel. Notre système vous permet de communiquer efficacement avec notre équipe." styleClass="description-text">
+                        <VBox.margin>
+                            <Insets top="15" bottom="18"/>
+                        </VBox.margin>
+                    </Label>
+                    
+                    <!-- Stats -->
+                    <HBox spacing="50" alignment="CENTER" styleClass="stats-container">
+                        <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                            <HBox alignment="CENTER">
+                                <Label fx:id="pendingReclamationsCount" text="6" styleClass="stats-value, pending-value" />
+                            </HBox>
+                            <Label text="En attente" styleClass="stats-label" />
+                        </VBox>
+                        <VBox alignment="CENTER" HBox.hgrow="ALWAYS">
+                            <HBox alignment="CENTER">
+                                <Label fx:id="resolvedReclamationsCount" text="0" styleClass="stats-value, resolved-value" />
+                            </HBox>
+                            <Label text="Résolues" styleClass="stats-label" />
+                        </VBox>
+                    </HBox>
+                    
+                    <Region VBox.vgrow="ALWAYS" />
+                    
+                    <HBox alignment="CENTER_RIGHT">
+                        <Button text="Consulter" onAction="#showReclamations" styleClass="action-button">
+                        <graphic>
+                            <SVGPath content="M16,15H9V13H16L12.5,9.5L14,8L20,14L14,20L12.5,18.5L16,15M3,3H11V5H3V19H11V21H3A2,2 0 0,1 1,19V5A2,2 0 0,1 3,3Z" style="-fx-fill: white;" />
+                        </graphic>
+                    </Button>
+                    </HBox>
+                </VBox>
+                
+                <!-- Avis Card -->
+                <VBox styleClass="menu-box" prefWidth="400.0" prefHeight="250.0">
+                    <padding>
+                        <Insets top="22" right="22" bottom="22" left="22"/>
+                    </padding>
+                    
+                    <!-- Icon et titre -->
+                    <HBox spacing="18" alignment="CENTER_LEFT">
+                        <StackPane styleClass="icon-container" style="-fx-background-color: linear-gradient(to bottom right, rgba(251, 188, 4, 0.1), rgba(255, 172, 0, 0.15));">
+                            <SVGPath fx:id="avisIcon" content="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" styleClass="avis-icon" />
+                    </StackPane>
+                        <Label text="Mes Avis" styleClass="header-label"/>
+                        
+                        <!-- Indicateur "Nouveau" -->
+                        <HBox styleClass="new-indicator">
+                            <Label text="Nouveau" styleClass="new-indicator-text" />
+                        </HBox>
+                    </HBox>
+                    
+                    <Label text="Partagez votre expérience et consultez les avis des autres utilisateurs. Votre opinion nous aide à améliorer continuellement nos services et offres." styleClass="description-text">
+                        <VBox.margin>
+                            <Insets top="15" bottom="18"/>
+                        </VBox.margin>
+                    </Label>
+                    
+                    <!-- Rating preview -->
+                    <HBox spacing="10" alignment="CENTER" styleClass="stats-container">
+                        <HBox fx:id="starsContainer" spacing="5" alignment="CENTER">
+                            <SVGPath styleClass="star-rating, filled" content="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" />
+                            <SVGPath styleClass="star-rating, filled" content="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" />
+                            <SVGPath styleClass="star-rating, filled" content="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" />
+                            <SVGPath styleClass="star-rating, filled" content="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" />
+                            <SVGPath styleClass="star-rating" content="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" />
+                        </HBox>
+                        <Label text="4.0" styleClass="stats-value, rating-value" />
+                    </HBox>
+                    
+                    <Region VBox.vgrow="ALWAYS" />
+                    
+                    <HBox alignment="CENTER_RIGHT">
+                        <Button text="Consulter" onAction="#showAvis" styleClass="action-button, avis">
+                        <graphic>
+                            <SVGPath content="M16,15H9V13H16L12.5,9.5L14,8L20,14L14,20L12.5,18.5L16,15M3,3H11V5H3V19H11V21H3A2,2 0 0,1 1,19V5A2,2 0 0,1 3,3Z" style="-fx-fill: #333333;" />
+                        </graphic>
+                    </Button>
+                    </HBox>
+                </VBox>
+            </HBox>
+                
+            <!-- Tableau de Bord Card séparé en dessous -->
+            <VBox styleClass="menu-box, dashboard-card" prefWidth="850.0" prefHeight="210.0">
+                    <padding>
+                    <Insets top="24" right="24" bottom="24" left="24"/>
+                    </padding>
+                    
+                <!-- Icon et titre -->
+                <HBox spacing="18" alignment="CENTER_LEFT">
+                    <StackPane styleClass="icon-container" style="-fx-background-color: linear-gradient(to bottom right, rgba(52, 168, 83, 0.1), rgba(23, 156, 82, 0.15));">
+                        <SVGPath fx:id="dashboardIcon" content="M3,11H11V3H3M3,21H11V13H3M13,21H21V13H13M13,3V11H21V3" styleClass="dashboard-icon" />
+                    </StackPane>
+                    <Label text="Tableau de Bord" styleClass="header-label"/>
+                    
+                    <!-- Badge de statut -->
+                    <HBox styleClass="status-badge">
+                        <Circle radius="4" fill="#34a853"/>
+                        <Label text="Temps réel" styleClass="status-badge-text" />
+                    </HBox>
+                </HBox>
+                
+                <Label text="Visualisez les statistiques, suivez les tendances et analysez les données en temps réel avec notre tableau de bord interactif et intelligent." styleClass="description-text">
+                    <VBox.margin>
+                        <Insets top="15" bottom="18"/>
+                        </VBox.margin>
+                    </Label>
+                    
+                    <!-- Features preview -->
+                <HBox spacing="15" alignment="CENTER_LEFT" styleClass="stats-container">
+                    <HBox spacing="20">
+                        <VBox alignment="CENTER" styleClass="dashboard-feature">
+                            <StackPane styleClass="feature-icon-container">
+                                <Circle radius="18" styleClass="feature-icon-bg" fill="rgba(26, 115, 232, 0.1)"/>
+                                <SVGPath content="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z" styleClass="feature-icon" />
+                            </StackPane>
+                            <Label text="Accueil" styleClass="feature-label" />
+                        </VBox>
+                        <VBox alignment="CENTER" styleClass="dashboard-feature">
+                            <StackPane styleClass="feature-icon-container">
+                                <Circle radius="18" styleClass="feature-icon-bg" fill="rgba(52, 168, 83, 0.1)"/>
+                                <SVGPath content="M17.45,15.18L22,7.31V19L22,21H2V3H4V15.54L9.5,6L16,9.78L20.24,2.45L21.97,3.45L16.74,12.5L10.23,8.75L4.31,19H6.57L10.96,11.44L17.45,15.18Z" styleClass="feature-icon" />
+                            </StackPane>
+                            <Label text="Statistiques" styleClass="feature-label" />
+                        </VBox>
+                        <VBox alignment="CENTER" styleClass="dashboard-feature">
+                            <StackPane styleClass="feature-icon-container">
+                                <Circle radius="18" styleClass="feature-icon-bg" fill="rgba(251, 188, 4, 0.1)"/>
+                                <SVGPath content="M15,19L9,16.89V5L15,7.11M20.5,3C20.44,3 20.39,3 20.34,3L15,5.1L9,3L3.36,4.9C3.15,4.97 3,5.15 3,5.38V20.5A0.5,0.5 0 0,0 3.5,21C3.55,21 3.61,21 3.66,20.97L9,18.9L15,21L20.64,19.1C20.85,19 21,18.85 21,18.62V3.5A0.5,0.5 0 0,0 20.5,3Z" styleClass="feature-icon" />
+                            </StackPane>
+                            <Label text="Cartes" styleClass="feature-label" />
+                        </VBox>
+                        <VBox alignment="CENTER" styleClass="dashboard-feature">
+                            <StackPane styleClass="feature-icon-container">
+                                <Circle radius="18" styleClass="feature-icon-bg" fill="rgba(234, 67, 53, 0.1)"/>
+                                <SVGPath content="M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M10,10.5H7.5V13.5H10V16H13V13.5H15.5V10.5H13V8H10V10.5M8,17H16V19H8V17Z" styleClass="feature-icon" />
+                            </StackPane>
+                            <Label text="Santé" styleClass="feature-label" />
+                        </VBox>
+                    </HBox>
+                    </HBox>
+                    
+                <HBox alignment="CENTER_RIGHT">
+                    <Button text="Ouvrir" onAction="#showDashboard" styleClass="action-button, dashboard">
+                        <graphic>
+                            <SVGPath content="M16,15H9V13H16L12.5,9.5L14,8L20,14L14,20L12.5,18.5L16,15M3,3H11V5H3V19H11V21H3A2,2 0 0,1 1,19V5A2,2 0 0,1 3,3Z" style="-fx-fill: white;" />
+                        </graphic>
+                    </Button>
+                </HBox>
+                </VBox>
+            
+            <!-- Footer area -->
+            <HBox alignment="CENTER" spacing="8" styleClass="footer-container">
+                <HBox alignment="CENTER" spacing="10">
+                    <HBox alignment="CENTER" spacing="5" styleClass="footer-item">
+                        <SVGPath content="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" styleClass="footer-icon"/>
+                        <Label text="Github" styleClass="footer-text" />
+                    </HBox>
+                    <HBox alignment="CENTER" spacing="5" styleClass="footer-item">
+                        <SVGPath content="M19,3A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3H19M18.5,18.5V13.2A3.26,3.26 0 0,0 15.24,9.94C14.39,9.94 13.4,10.46 12.92,11.24V10.13H10.13V18.5H12.92V13.57C12.92,12.8 13.54,12.17 14.31,12.17A1.4,1.4 0 0,1 15.71,13.57V18.5H18.5M6.88,8.56A1.68,1.68 0 0,0 8.56,6.88C8.56,5.95 7.81,5.19 6.88,5.19A1.69,1.69 0 0,0 5.19,6.88C5.19,7.81 5.95,8.56 6.88,8.56M8.27,18.5V10.13H5.5V18.5H8.27Z" styleClass="footer-icon"/>
+                        <Label text="LinkedIn" styleClass="footer-text" />
+                    </HBox>
+                    <Separator orientation="VERTICAL" styleClass="footer-separator" />
+                    <Label text="© 2024 WeGo - Tous droits réservés" styleClass="footer-text" />
+                    <Label text="Version 1.0.5" styleClass="version-text" />
+                    <Separator orientation="VERTICAL" styleClass="footer-separator" />
+                    <HBox alignment="CENTER" spacing="5" styleClass="footer-item">
+                        <SVGPath content="M11,18H13V16H11V18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,6A4,4 0 0,0 8,10H10A2,2 0 0,1 12,8A2,2 0 0,1 14,10C14,12 11,11.75 11,15H13C13,12.75 16,12.5 16,10A4,4 0 0,0 12,6Z" styleClass="footer-icon"/>
+                        <Label text="Aide" styleClass="footer-text" />
+                    </HBox>
+                </HBox>
+            </HBox>
+        </VBox>
+    </StackPane>
+</AnchorPane>
