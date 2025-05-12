@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #F9F9F9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AjouterFactureController">
+
+    <!-- Bandeau haut -->
+    <AnchorPane prefHeight="80.0" prefWidth="992.0" style="-fx-background-color: linear-gradient(to right, #32D18A, #1ABC9C);">
+        <Label layoutX="30.0" layoutY="20.0" style="-fx-text-fill: white; -fx-font-weight: bold;" text="WeGo - Ride Together Save Forever !">
+            <font><Font size="26.0" /></font>
+        </Label>
+    </AnchorPane>
+
+    <!-- Titre -->
+    <Label layoutX="282.0" layoutY="80.0" prefHeight="100.0" prefWidth="427.0" style="-fx-text-fill: #32D18A; -fx-font-weight: bold;" text="Ajouter une facture :" underline="true">
+        <font><Font size="22.0" /></font>
+    </Label>
+
+    <!-- Description -->
+    <Label layoutX="282.0" layoutY="170.0" style="-fx-text-fill: #7F8C8D;" text="Veuillez remplir les informations de la facture.">
+        <font><Font size="14.0" /></font>
+    </Label>
+
+    <!-- Formulaire -->
+    <VBox layoutX="250.0" layoutY="220.0" spacing="15.0">
+
+        <TextField fx:id="txtIdFacture" prefHeight="40.0" prefWidth="332.0" promptText="ID Facture" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #32D18A; -fx-padding: 0 0 0 10;" />
+
+        <TextField fx:id="txtReservationId" prefHeight="40.0" prefWidth="400.0" promptText="ID Réservation" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #32D18A; -fx-padding: 0 0 0 10;" />
+
+        <TextField fx:id="txtIdPaiement" prefHeight="40.0" prefWidth="400.0" promptText="ID Paiement" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #32D18A; -fx-padding: 0 0 0 10;" />
+
+        <Button fx:id="btnValider" onAction="#handleAutoFillMontantTotal" prefHeight="40.0" prefWidth="400.0" style="-fx-background-color: linear-gradient(to bottom right, #32D18A, #1ABC9C); -fx-background-radius: 10px; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;">Valider Paiement</Button>
+
+        <TextField fx:id="txtMontantTotal" prefHeight="40.0" prefWidth="400.0" promptText="Montant Total" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #32D18A; -fx-padding: 0 0 0 10;" />
+
+        <TextField fx:id="txtMontantPaye" prefHeight="40.0" prefWidth="400.0" promptText="Montant Payé" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #32D18A; -fx-padding: 0 0 0 10;" />
+
+        <DatePicker fx:id="dateEmissionPicker" prefHeight="40.0" prefWidth="400.0" promptText="Date d'émission" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #32D18A;" />
+
+        <TextField fx:id="txtDescription" prefHeight="40.0" prefWidth="400.0" promptText="Description" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #32D18A; -fx-padding: 0 0 0 10;" />
+
+    </VBox>
+
+    <!-- Bouton Ajouter -->
+    <Button fx:id="btnAjouter" layoutX="320.0" layoutY="675.0" onAction="#ajouterFacture" prefHeight="38.0" prefWidth="132.0" style="-fx-background-color: linear-gradient(to bottom right, #32D18A, #1ABC9C); -fx-background-radius: 15px; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 4);">
+        Ajouter Facture
+    </Button>
+
+    <!-- Bouton Retour -->
+    <Button fx:id="btnRetourMenu" layoutX="476.0" layoutY="674.0" onAction="#handleBackToMenu" prefHeight="40.0" prefWidth="132.0" style="-fx-background-color: linear-gradient(to bottom right, #1ABC9C, #16A085); -fx-background-radius: 15px; -fx-text-fill: white; -fx-font-size: 16px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 4);">
+        Retour
+    </Button>
+
+    <!-- Décor Cercles -->
+    <Circle fill="#32D18A" layoutX="880.0" layoutY="640.0" opacity="0.15" radius="100.0" />
+    <Circle fill="#1ABC9C" layoutX="60.0" layoutY="630.0" opacity="0.1" radius="80.0" />
+
+</AnchorPane>

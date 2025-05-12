@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #F9F9F9;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SupprimerFactureController">
+    <children>
+
+        <!-- Bandeau haut -->
+        <AnchorPane prefHeight="80.0" prefWidth="938.0" style="-fx-background-color: linear-gradient(to right, #32D18A, #1ABC9C);">
+            <Label layoutX="30.0" layoutY="20.0" style="-fx-text-fill: white; -fx-font-weight: bold;" text="WeGo - Ride Together Save Forever !">
+                <font><Font size="26.0" /></font>
+            </Label>
+        </AnchorPane>
+
+        <!-- Titre -->
+        <Label layoutX="354.0" layoutY="110.0" style="-fx-text-fill: #32D18A; -fx-font-weight: bold;" text="Supprimer une facture">
+            <font><Font size="22.0" /></font>
+        </Label>
+
+        <!-- Formulaire -->
+        <VBox layoutX="180.0" layoutY="200.0" prefWidth="580.0" spacing="20.0">
+
+            <!-- Zone d'affichage des détails -->
+            <VBox fx:id="vboxDetails" spacing="10.0" style="-fx-background-color: white; -fx-border-color: #2e7d32; -fx-border-radius: 8; -fx-padding: 15;" visible="false">
+                <Label style="-fx-text-fill: #2e7d32; -fx-font-weight: bold;" text="Détails de la facture :" />
+                <HBox spacing="10.0">
+                    <Label style="-fx-text-fill: #2e7d32; -fx-min-width: 120;" text="Réservation ID:" />
+                    <Label fx:id="lblReservationId" style="-fx-text-fill: #333333;" />
+                </HBox>
+                <HBox spacing="10.0">
+                    <Label style="-fx-text-fill: #2e7d32; -fx-min-width: 120;" text="Montant Total:" />
+                    <Label fx:id="lblMontantTotal" style="-fx-text-fill: #333333;" />
+                </HBox>
+                <HBox spacing="10.0">
+                    <Label style="-fx-text-fill: #2e7d32; -fx-min-width: 120;" text="Date Émission:" />
+                    <Label fx:id="lblDateEmission" style="-fx-text-fill: #333333;" />
+                </HBox>
+            </VBox>
+
+            <!-- Zone de recherche -->
+            <HBox alignment="CENTER_LEFT" spacing="15.0">
+                <Label style="-fx-text-fill: #32D18A; -fx-font-weight: bold;" text="ID Facture :">
+                    <font><Font size="14.0" /></font>
+                </Label>
+                <TextField fx:id="txtIdFacture" prefWidth="180.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #32D18A;" />
+                <Button fx:id="btnRechercher" onAction="#rechercherFacture" prefHeight="32.0" prefWidth="100.0" style="-fx-background-color: linear-gradient(to bottom right, #32D18A, #1ABC9C); -fx-text-fill: white; -fx-background-radius: 10;" text="Vérifier">
+                    <font><Font size="14.0" /></font>
+                </Button>
+            </HBox>
+
+            <!-- Bouton supprimer -->
+            <Button fx:id="btnSupprimer" onAction="#supprimerFacture" prefHeight="42.0" prefWidth="150.0" style="-fx-background-color: #d32f2f; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 12px;" text="Supprimer" visible="false">
+                <font><Font size="16.0" /></font>
+            </Button>
+
+            <!-- Message d'état -->
+            <Label fx:id="lblMessage" style="-fx-text-fill: #d32f2f;" visible="false" />
+
+        </VBox>
+
+        <!-- Bouton Retour -->
+        <Button fx:id="btnRetourMenu" layoutX="379.0" layoutY="600.0" onAction="#handleBackToMenu" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #32D18A; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 12px;" text="Retour">
+            <font><Font size="16.0" /></font>
+        </Button>
+
+        <!-- Décorations -->
+        <Circle fill="#32D18A" layoutX="49.0" layoutY="731.0" opacity="0.1" radius="72.0" />
+        <Circle fill="#32D18A" layoutX="838.0" layoutY="731.0" opacity="0.1" radius="100.0" />
+
+           <!-- Description -->
+        <Label layoutX="352.0" layoutY="172.0" style="-fx-text-fill: #7F8C8D;" text="Recherchez et supprimez vos factures.">
+            <font>
+            <Font size="14.0" />
+         </font>
+        </Label>
+
+    </children>
+</AnchorPane>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="650.0" prefWidth="900.0" style="-fx-background-color: #ECF0F1;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MenuFactureController">
+
+    <!-- Bandeau haut -->
+    <AnchorPane prefHeight="80.0" prefWidth="1065.0" style="-fx-background-color: #2ECC71;">
+        <Label layoutX="30.0" layoutY="20.0" style="-fx-text-fill: white; -fx-font-weight: bold;" text="WeGo - Gestion des Factures">
+            <font><Font size="24.0" /></font>
+        </Label>
+    </AnchorPane>
+
+    <!-- Sidebar -->
+    <AnchorPane layoutX="0.0" layoutY="80.0" prefHeight="652.0" prefWidth="250.0" style="-fx-background-color: white; -fx-border-color: #2ECC71; -fx-border-width: 0 1 0 0;">
+        <Label layoutX="30.0" layoutY="30.0" style="-fx-text-fill: #2ECC71; -fx-font-weight: bold;" text="Actions Factures">
+            <font><Font size="18.0" /></font>
+        </Label>
+
+        <Button fx:id="btnAjouter" layoutX="25.0" layoutY="90.0" onAction="#ouvrirAjouterFacture" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #2ECC71; -fx-text-fill: white; -fx-background-radius: 10px; -fx-font-size: 15px;">
+            Ajouter Facture
+        </Button>
+
+        <Button fx:id="btnAfficher" layoutX="25.0" layoutY="160.0" onAction="#ouvrirAfficherFacture" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-background-radius: 10px; -fx-font-size: 15px;">
+            Afficher Factures
+        </Button>
+
+        <Button fx:id="btnModifier" layoutX="25.0" layoutY="230.0" onAction="#ouvrirModifierFacture" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #58D68D; -fx-text-fill: white; -fx-background-radius: 10px; -fx-font-size: 15px;">
+            Modifier Facture
+        </Button>
+
+        <Button fx:id="btnSupprimer" layoutX="25.0" layoutY="300.0" onAction="#ouvrirSupprimerFacture" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #1D8348; -fx-text-fill: white; -fx-background-radius: 10px; -fx-font-size: 15px;">
+            Supprimer Facture
+        </Button>
+
+        <!-- Bouton Retour Menu Principal ajouté -->
+        <Button fx:id="btnRetourMenu" layoutX="25.0" layoutY="370.0" onAction="#revenirAuMenuPrincipal" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #117A65; -fx-text-fill: white; -fx-background-radius: 10px; -fx-font-size: 15px;" text=" Menu Principal">
+            Retour Menu Principal
+        </Button>
+
+    </AnchorPane>
+
+    <!-- ContentArea + Dashboard -->
+    <AnchorPane fx:id="contentArea" layoutX="250.0" layoutY="80.0" prefHeight="652.0" prefWidth="765.0" style="-fx-background-color: white; -fx-background-radius: 20px; -fx-border-color: #2ECC71; -fx-border-radius: 20px;">
+
+        <!-- Titre de bienvenue -->
+        <Label layoutX="30.0" layoutY="25.0" style="-fx-text-fill: #2ECC71; -fx-font-weight: bold;" text="Bienvenue sur le Dashboard Factures WeGo">
+            <font><Font size="22.0" /></font>
+        </Label>
+
+        <!-- Carte 1 (Total Factures) -->
+        <AnchorPane layoutX="30.0" layoutY="80.0" prefHeight="120.0" prefWidth="200.0" style="-fx-background-color: #28B463; -fx-background-radius: 15px;">
+            <Label layoutX="20.0" layoutY="15.0" style="-fx-text-fill: white; -fx-font-weight: bold;" text="Total Factures">
+                <font><Font size="16.0" /></font>
+            </Label>
+            <Label layoutX="20.0" layoutY="60.0" style="-fx-text-fill: white;" text="450 DT">
+                <font><Font size="30.0" /></font>
+            </Label>
+        </AnchorPane>
+
+        <!-- Carte 2 (Aujourd'hui) -->
+        <AnchorPane layoutX="252.0" layoutY="80.0" prefHeight="120.0" prefWidth="200.0" style="-fx-background-color: #52BE80; -fx-background-radius: 15px;">
+            <Label layoutX="20.0" layoutY="15.0" style="-fx-text-fill: white; -fx-font-weight: bold;" text="Aujourd'hui">
+                <font><Font size="16.0" /></font>
+            </Label>
+            <Label layoutX="20.0" layoutY="60.0" style="-fx-text-fill: white;" text="120 DT">
+                <font><Font size="30.0" /></font>
+            </Label>
+        </AnchorPane>
+
+        <!-- Carte 3 (En attente) -->
+        <AnchorPane layoutX="494.0" layoutY="80.0" prefHeight="120.0" prefWidth="200.0" style="-fx-background-color: #28B463; -fx-background-radius: 15px;">
+            <Label layoutX="20.0" layoutY="15.0" style="-fx-text-fill: white; -fx-font-weight: bold;" text="En attente">
+                <font><Font size="16.0" /></font>
+            </Label>
+            <Label layoutX="20.0" layoutY="60.0" style="-fx-text-fill: white;" text="60 DT">
+                <font><Font size="30.0" /></font>
+            </Label>
+        </AnchorPane>
+
+        <!-- Dernière facture -->
+        <AnchorPane layoutX="30.0" layoutY="230.0" prefHeight="80.0" prefWidth="680.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #2ECC71; -fx-border-radius: 10px; -fx-background-radius: 10px;">
+            <Label layoutX="20.0" layoutY="25.0" style="-fx-text-fill: #2ECC71;" text="Dernière Facture : 35 DT | 30/04/2025 - Client : Rami">
+                <font><Font size="16.0" /></font>
+            </Label>
+        </AnchorPane>
+
+        <!-- Message info -->
+        <Label layoutX="30.0" layoutY="350.0" style="-fx-text-fill: #28B463;" text="Astuce : Gérer vos factures facilement avec les options à gauche.">
+            <font><Font size="14.0" /></font>
+        </Label>
+
+    </AnchorPane>
+
+    <!-- Cercle déco -->
+    <Circle fill="#2ECC71" layoutX="950.0" layoutY="700.0" opacity="0.2" radius="60.0" />
+
+</AnchorPane>
