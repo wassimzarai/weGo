@@ -128,7 +128,7 @@ public class Dashboard implements Initializable {
     @FXML
     private Circle circle1;
     @FXML
-    private ComboBox<String> roleComboBox;
+    private ComboBox<String> comboboxrole;
 
 
     private Connection connect;
@@ -344,6 +344,24 @@ public class Dashboard implements Initializable {
 
     }
 
+    private String roles[] = {"Admin", "client", "Conducteur"};
+
+    public void comboBoxRole() {
+
+        List<String> list = new ArrayList<>();
+
+        for (String data1 : roles) {
+
+            list.add(data1);
+
+        }
+
+        ObservableList dataList = FXCollections.observableArrayList(list);
+
+        comboboxrole.setItems(dataList);
+
+    }
+
     public void update() {
         connect = database.connectDb();
 
@@ -406,6 +424,7 @@ public class Dashboard implements Initializable {
         navButton();
         afficherDetailsUtilisateur();
         comboBox();
+        comboBoxRole();
 
 
     }

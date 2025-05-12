@@ -105,6 +105,10 @@ public class HelloController implements Initializable {
     @FXML
     private AnchorPane verify_forget;
 
+
+    @FXML
+    private ComboBox<String> comboboxrole;
+
     private Connection connect;
     private Statement statement;
     private PreparedStatement prepare;
