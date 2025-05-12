@@ -1,0 +1,83 @@
+.avis-container {
+    -fx-background-color: white;
+}
+
+.avis-header {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #e9ecef;
+    -fx-border-width: 0 0 1 0;
+}
+
+.header-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.header-subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6c757d;
+}
+
+.avis-content {
+    -fx-background-color: white;
+}
+
+.section-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.star-image {
+    -fx-cursor: hand;
+    -fx-opacity: 0.3;
+}
+
+.star-image:hover {
+    -fx-opacity: 1;
+}
+
+.star-selected {
+    -fx-opacity: 1;
+}
+
+.rating-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #6c757d;
+}
+
+.comment-area {
+    -fx-background-color: #f8f9fa;
+    -fx-border-color: #e9ecef;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-font-size: 14px;
+}
+
+.comment-area:focused {
+    -fx-border-color: #007bff;
+    -fx-background-color: white;
+}
+
+.submit-button {
+    -fx-background-color: #007bff;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 4px;
+}
+
+.submit-button:hover {
+    -fx-background-color: #0056b3;
+}
+
+.cancel-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #6c757d;
+    -fx-border-color: #6c757d;
+    -fx-border-radius: 4px;
+    -fx-padding: 10 20;
+}
+
+.cancel-button:hover {
+    -fx-background-color: #f8f9fa;
+} 

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gui.ReclamationDetailsController"
+            prefHeight="600.0" prefWidth="700.0"
+            stylesheets="/styles/global.css">
+    
+    <VBox spacing="20" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" 
+          AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+        
+        <!-- Header -->
+        <HBox style="-fx-background-color: #f8f9fa; -fx-border-color: #e9ecef; -fx-border-width: 0 0 1 0;">
+            <padding>
+                <Insets top="20" right="30" bottom="20" left="30"/>
+            </padding>
+            
+            <Button text="← Retour" onAction="#handleBack"
+                   style="-fx-background-color: transparent; -fx-text-fill: #2196F3; -fx-font-weight: bold;"/>
+            <Region prefWidth="20" />
+            <VBox spacing="5">
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <Label text="Détails de la Réclamation" style="-fx-font-size: 20; -fx-font-weight: bold;"/>
+                    <Label fx:id="ticketIdLabel" style="-fx-font-size: 14; -fx-text-fill: #1a73e8; -fx-font-weight: bold;"/>
+                </HBox>
+                <Label fx:id="reclamationId" style="-fx-font-size: 14; -fx-text-fill: #6c757d;"/>
+            </VBox>
+        </HBox>
+        
+        <!-- Content -->
+        <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent;">
+            <VBox spacing="25">
+                <padding>
+                    <Insets top="20" right="30" bottom="30" left="30"/>
+                </padding>
+                
+                <!-- Title Section -->
+                <VBox spacing="10">
+                    <Label text="Titre" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+                    <Label fx:id="titreLabel" wrapText="true" style="-fx-font-size: 14;"/>
+                </VBox>
+                
+                <!-- Description Section -->
+                <VBox spacing="10">
+                    <Label text="Description" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+                    <TextArea fx:id="descriptionArea" wrapText="true" editable="false" 
+                             prefRowCount="6" style="-fx-background-color: #f8f9fa;"/>
+                </VBox>
+                
+                <!-- Basic Info Section -->
+                <HBox spacing="50">
+                    <VBox spacing="10">
+                        <Label text="Date de création" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+                        <Label fx:id="dateLabel" style="-fx-font-size: 14;"/>
+                    </VBox>
+                    
+                    <VBox spacing="10">
+                        <Label text="Statut" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+                        <Label fx:id="statutLabel" style="-fx-font-size: 14;" />
+                    </VBox>
+                    
+                    <VBox spacing="10">
+                        <Label text="Priorité" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+                        <Label fx:id="prioriteLabel" style="-fx-font-size: 14;" />
+                    </VBox>
+                </HBox>
+                
+                <!-- AI Analysis Section -->
+                <TitledPane text="Analyse IA" expanded="false">
+                    <VBox spacing="10">
+                        <HBox spacing="30">
+                            <VBox spacing="5">
+                                <Label text="Catégorie" style="-fx-font-weight: bold;"/>
+                                <Label fx:id="categorieLabel" />
+                            </VBox>
+                            
+                            <VBox spacing="5">
+                                <Label text="Gravité" style="-fx-font-weight: bold;"/>
+                                <Label fx:id="graviteLabel" />
+                            </VBox>
+                        </HBox>
+                    </VBox>
+                </TitledPane>
+                
+                <!-- Geolocation Section -->
+                <TitledPane text="Localisation" expanded="false">
+                    <VBox spacing="10">
+                        <Label text="Adresse" style="-fx-font-weight: bold;"/>
+                        <Label fx:id="adresseLabel" wrapText="true" />
+                        
+                        <HBox spacing="20">
+                            <VBox spacing="5">
+                                <Label text="Latitude" style="-fx-font-weight: bold;"/>
+                                <Label fx:id="latitudeLabel" />
+                            </VBox>
+                            
+                            <VBox spacing="5">
+                                <Label text="Longitude" style="-fx-font-weight: bold;"/>
+                                <Label fx:id="longitudeLabel" />
+                            </VBox>
+                        </HBox>
+                        
+                        <VBox fx:id="locationMapContainer" prefHeight="200" 
+                             style="-fx-background-color: #f5f5f5; -fx-border-color: #ddd; -fx-border-width: 1px;" />
+                    </VBox>
+                </TitledPane>
+                
+                <!-- Responses Section -->
+                <TitledPane text="Réponses" expanded="true" VBox.vgrow="ALWAYS">
+                    <VBox spacing="10">
+                        <ListView fx:id="reponsesListView" VBox.vgrow="ALWAYS" prefHeight="150" />
+                        
+                        <HBox spacing="10">
+                            <TextArea fx:id="newResponseField" promptText="Écrivez votre réponse ici..." 
+                                     HBox.hgrow="ALWAYS" prefRowCount="3" wrapText="true" />
+                            <Button fx:id="sendResponseButton" text="Envoyer" onAction="#handleSendResponse"
+                                   style="-fx-background-color: #1a73e8; -fx-text-fill: white;" />
+                        </HBox>
+                    </VBox>
+                </TitledPane>
+                
+                <!-- Tracking Section -->
+                <TitledPane text="Suivi du traitement" expanded="false">
+                    <VBox spacing="10">
+                        <GridPane hgap="10" vgap="10">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="120.0" />
+                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="200.0" />
+                            </columnConstraints>
+                            
+                            <Label text="Créée le:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                            <Label fx:id="creationDateLabel" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                            
+                            <Label text="Dernière mise à jour:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                            <Label fx:id="lastUpdateLabel" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                            
+                            <Label text="Temps écoulé:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                            <Label fx:id="elapsedTimeLabel" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                            
+                            <Label text="Estimation de résolution:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                            <Label fx:id="estimatedResolutionLabel" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                        </GridPane>
+                        
+                        <ProgressBar fx:id="progressBar" progress="0.0" maxWidth="Infinity" />
+                    </VBox>
+                </TitledPane>
+                
+                <!-- Actions -->
+                <HBox spacing="15" alignment="CENTER">
+                    <Button text="Modifier" onAction="#handleEdit" 
+                           style="-fx-background-color: #FFA726; -fx-text-fill: white;"/>
+                    <Button text="Supprimer" onAction="#handleDelete" 
+                           style="-fx-background-color: #F44336; -fx-text-fill: white;"/>
+                    <Button text="Envoyer Email Admin" onAction="#handleContactAdmin" 
+                           style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+                    <Button text="Retour" onAction="#handleBack" 
+                           style="-fx-background-color: #9E9E9E; -fx-text-fill: white;"/>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </VBox>
+</AnchorPane> 
