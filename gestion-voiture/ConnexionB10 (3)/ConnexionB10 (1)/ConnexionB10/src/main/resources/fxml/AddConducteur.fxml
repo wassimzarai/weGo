@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.util.converter.LocalDateStringConverter?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controllers.AddConducteurController"
+            prefWidth="400" prefHeight="300">
+
+    <VBox spacing="20" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" style="-fx-background-color: #e0f7fa; -fx-padding: 20; -fx-border-radius: 15; -fx-border-color: #4caf50; -fx-effect: dropshadow(gaussian, #4caf50, 10, 0.5, 0, 0);">
+        <Label text="Ajouter un Conducteur" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #388e3c;"/>
+
+        <!-- Form Fields -->
+        <HBox spacing="10">
+            <Label text="ID Voiture:" prefWidth="100" style="-fx-text-fill: #388e3c;"/>
+            <ComboBox fx:id="idVoitureComboBox" promptText="Sélectionner ID Voiture" style="-fx-background-color: #b2dfdb; -fx-text-fill: #388e3c; -fx-border-radius: 5; -fx-padding: 5px 10px;"/>
+        </HBox>
+
+        <!-- Date Selection -->
+        <HBox spacing="10">
+            <Label text="Date de départ:" prefWidth="100" style="-fx-text-fill: #388e3c;"/>
+            <DatePicker fx:id="departDateComboBox" promptText="Sélectionner la date de départ" style="-fx-background-color: #b2dfdb; -fx-text-fill: #388e3c; -fx-border-radius: 5; -fx-padding: 5px 10px;"/>
+        </HBox>
+
+        <HBox spacing="10">
+            <Label text="Date finale:" prefWidth="100" style="-fx-text-fill: #388e3c;"/>
+            <DatePicker fx:id="finalDateComboBox" promptText="Sélectionner la date finale" style="-fx-background-color: #b2dfdb; -fx-text-fill: #388e3c; -fx-border-radius: 5; -fx-padding: 5px 10px;"/>
+        </HBox>
+
+        <!-- Number of days -->
+        <HBox spacing="10">
+            <Label text="Nombre de jours:" prefWidth="100" style="-fx-text-fill: #388e3c;"/>
+            <TextField fx:id="numberOfDaysField" promptText="Nombre de jours" editable="false" style="-fx-background-color: #b2dfdb; -fx-text-fill: #388e3c; -fx-border-radius: 5; -fx-padding: 5px 10px;"/>
+        </HBox>
+
+        <!-- Buttons -->
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button text="Annuler" fx:id="cancelButton" style="-fx-background-color: #ff7043; -fx-text-fill: white; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, #f4511e, 10, 0.5, 0, 0); -fx-padding: 10px 20px;"/>
+            <Button text="Enregistrer" fx:id="saveButton" style="-fx-background-color: #66bb6a; -fx-text-fill: white; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, #388e3c, 10, 0.5, 0, 0); -fx-padding: 10px 20px;"/>
+        </HBox>
+    </VBox>
+
+</AnchorPane>

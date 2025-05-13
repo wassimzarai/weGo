@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.Scene?>
+<?import javafx.stage.Stage?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controllers.ViewConducteurController"
+            prefWidth="700" prefHeight="500">
+
+    <VBox spacing="10"
+          AnchorPane.topAnchor="10"
+          AnchorPane.bottomAnchor="10"
+          AnchorPane.leftAnchor="10"
+          AnchorPane.rightAnchor="10">
+
+        <!-- Button to add a new conducteur -->
+        <Button fx:id="addButton"
+                text="Ajouter Conducteur"
+                style="-fx-background-color: #00c9a7; -fx-text-fill: white; -fx-font-weight: bold;" />
+
+        <!-- Radio Buttons for sorting -->
+        <HBox spacing="10">
+            <RadioButton fx:id="sortByIdAsc" text="Trier ID Croissant"/>
+            <RadioButton fx:id="sortByIdDesc" text="Trier ID Décroissant"/>
+            <RadioButton fx:id="sortByIdVoitureAsc" text="Trier ID Voiture Croissant"/>
+            <RadioButton fx:id="sortByIdVoitureDesc" text="Trier ID Voiture Décroissant"/>
+        </HBox>
+
+        <!-- TableView for Conducteurs -->
+        <TableView fx:id="conducteurTable" prefHeight="450">
+            <columns>
+                <TableColumn fx:id="idColumn" text="ID" prefWidth="50" />
+                <TableColumn fx:id="idVoitureColumn" text="ID Voiture" prefWidth="150" />
+                <TableColumn fx:id="dateDepartColumn" text="Date Départ" prefWidth="150" />
+                <TableColumn fx:id="dateArretColumn" text="Date Arrêt" prefWidth="150" />
+                <!-- This is the column that was missing from your FXML -->
+                <TableColumn fx:id="nbDaysColumn" text="Nombre de Jours" prefWidth="150" />
+                <TableColumn fx:id="actionsColumn" text="Actions" prefWidth="150" />
+            </columns>
+        </TableView>
+
+    </VBox>
+</AnchorPane>

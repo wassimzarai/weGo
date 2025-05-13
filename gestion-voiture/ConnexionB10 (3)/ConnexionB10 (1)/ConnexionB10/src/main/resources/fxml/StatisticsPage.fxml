@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Pos?>
+<?import javafx.scene.chart.PieChart?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controllers.StatisticsPageController"
+            prefWidth="800" prefHeight="600">
+
+    <!-- Title -->
+    <Label text="Statistics: Number of Unique Brands" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #333333;"
+           AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20"/>
+
+    <!-- Display the number of unique brands -->
+    <Label fx:id="brandCountLabel" text="Number of Brands: " style="-fx-font-size: 20px; -fx-text-fill: #333333;"
+           AnchorPane.topAnchor="80" AnchorPane.leftAnchor="20"/>
+
+    <!-- PieChart to display brand distribution -->
+    <PieChart fx:id="brandDistributionChart" AnchorPane.topAnchor="120" AnchorPane.leftAnchor="20"
+              prefWidth="600" prefHeight="400"/>
+</AnchorPane>

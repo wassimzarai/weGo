@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="Controllers.AjouterVoitureController"
+            prefWidth="600" prefHeight="450"
+            style="-fx-background-color: linear-gradient(to bottom right, #43e97b, #38f9d7);">
+
+    <VBox alignment="CENTER" spacing="15.0"
+          layoutX="100" layoutY="40" prefWidth="400"
+          AnchorPane.topAnchor="20" AnchorPane.bottomAnchor="20"
+          AnchorPane.leftAnchor="100" AnchorPane.rightAnchor="100"
+          style="-fx-background-color: white; -fx-background-radius: 20; -fx-padding: 30;">
+
+        <!-- Label for adding a car -->
+        <Label text="Ajouter une Voiture"
+               style="-fx-text-fill: #222; -fx-font-size: 22px; -fx-font-weight: bold;" />
+
+        <!-- Form to Add Car -->
+        <TextField fx:id="marqueField" promptText="Marque" style="-fx-background-color: #f0f0f0; -fx-background-radius: 8; -fx-padding: 8; -fx-font-size: 14px;"/>
+        <TextField fx:id="modeleField" promptText="Modèle" style="-fx-background-color: #f0f0f0; -fx-background-radius: 8; -fx-padding: 8; -fx-font-size: 14px;"/>
+        <TextField fx:id="typeLibelleField" promptText="Type" style="-fx-background-color: #f0f0f0; -fx-background-radius: 8; -fx-padding: 8; -fx-font-size: 14px;"/>
+
+        <!-- Add a new TextField for Matricule -->
+        <TextField fx:id="matriculeField" promptText="Matricule" style="-fx-background-color: #f0f0f0; -fx-background-radius: 8; -fx-padding: 8; -fx-font-size: 14px;"/>
+
+        <!-- Button to Add Car -->
+        <Button text="Ajouter" fx:id="ajouterButton" style="-fx-background-color: #00c9a7; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 10 20;" />
+
+        <!-- Annuler Button to return to the previous screen -->
+        <Button text="Annuler" fx:id="annulerButton" style="-fx-background-color: #ff4d4d; -fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px; -fx-background-radius: 10; -fx-padding: 10 20;" />
+    </VBox>
+</AnchorPane>
